@@ -1,0 +1,18 @@
+<h1>Réservations</h1>
+
+<%= simple_form_for ([@nanny, @reservation]) do |f| %>
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-6 col-lg-4">
+    <div class="form-inputs">
+      <div class="form-group">
+        <%= f.input :start_date, html5: true %>
+        <%= f.input :end_date, html5: true %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="form-actions">
+<%= f.button :submit, class: "btn btn-secondary" %>
+</div>
+<% end %>
+<%= link_to 'Revenir à la description de la nanny', nanny_path(@nanny) %>
