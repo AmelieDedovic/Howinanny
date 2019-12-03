@@ -1,0 +1,11 @@
+<h1>Trouver votre nanny</h1>
+<div>
+<ul>
+<% @nannies.each do |nanny| %>
+<li><%= link_to nanny.first_name, nanny_path(nanny)%></li>
+<%= nanny.description %>
+<%= nanny.city %>
+<%= cl_image_tag nanny.photo, height: 300, width: 400, crop: :fill  %>
+<% end %>
+</ul>
+</div>
