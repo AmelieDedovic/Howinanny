@@ -15,7 +15,7 @@ Reservation.destroy_all
 puts "Creating data..."
 
 10.times do
-  nanny = Nanny.create!(
+  nanny = Nanny.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     city: ['Marseille', 'Lyon', 'Toulouse', 'Bordeaux', 'Nantes', 'Lille', 'La Rochelle', 'Montauban', 'Montpellier', 'Dax', 'Aix-en-Provence'].sample,
@@ -28,18 +28,20 @@ puts "Creating data..."
     experience: ['Starter', 'Confirmée', 'Experte'].sample
   )
   nanny.remote_photo_url = "https://media.gettyimages.com/vectors/parasol-beach-umbrella-vector-id1029200830?s=612x612"
+  nanny.save!
 end
 
 10.times do
-  user = User.create!(
+  user = User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     city: ['Marseille', 'Lyon', 'Toulouse', 'Bordeaux', 'Nantes', 'Lille', 'La Rochelle', 'Montauban', 'Montpellier', 'Dax', 'Aix-en-Provence'].sample,
     email: Faker::Internet.email,
     password: Faker::Internet.password(min_length: 6),
     description: Faker::Lorem.paragraph
-    )
+  )
   user.remote_photo_url = "https://unsplash.com/s/photos/woman"
+  user.save!
 end
 
 puts "Database created !!"

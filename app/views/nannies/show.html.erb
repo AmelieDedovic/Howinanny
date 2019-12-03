@@ -4,3 +4,6 @@
 <%= @nanny.price_per_day %> €/ jour
 <%= @nanny.city %>
 <%= cl_image_tag @nanny.photo, alt: "Cest la nanny: #{@nanny.first_name}", height: 300, width: 400, crop: :fill %>
+
+<%= link_to "Réserver", new_nanny_reservation_path(@nanny) %>
+<%= link_to "Revenir à la liste de nannies", nannies_path(@nanny) %>
