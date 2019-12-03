@@ -5,3 +5,40 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+puts "Cleaning database..."
+Nanny.destroy_all
+User.destroy_all
+Reservation.destroy_all
+
+puts "Creating data..."
+
+10.times do
+  nanny = Nanny.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    city: ['Marseille', 'Lyon', 'Toulouse', 'Bordeaux', 'Nantes', 'Lille', 'La Rochelle', 'Montauban', 'Montpellier', 'Dax', 'Aix-en-Provence'].sample,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(min_length: 6),
+    description: Faker::Lorem.paragraph,
+    moving_area: ["France", "Europe", "Monde"].sample,
+    birth_date: Faker::Date.birthday(min_age: 18, max_age: 55),
+    price_per_day: Faker::Number.within(range:5..20),
+    experience: ['Starter', 'Confirmée', 'Experte'].sample,
+    )
+end
+
+10.times do
+  user = User.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    city: ['Marseille', 'Lyon', 'Toulouse', 'Bordeaux', 'Nantes', 'Lille', 'La Rochelle', 'Montauban', 'Montpellier', 'Dax', 'Aix-en-Provence'].sample,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(min_length: 6),
+    description: Faker::Lorem.paragraph
+    )
+end
+
+puts "Database created !!"
+
