@@ -1,16 +1,18 @@
 <div>
   <h1>Choisissez vos dates</h1>
-  <%# simple_form_for @reservation, url: research_nannies_path do |f| %>
-  <%# f.input :start_date %>
-  <%# f.input :end_date%>
-  <%# f.submit %>
-  <%# end %>
+  <%= form_tag nannies_path, method: :get do %>
+  <%= text_field_tag 'moving_area', params[:moving_area], placeholder: "Choose your moving area"%>
+  <%= date_field_tag 'start_date', params[:start_date], placeholder: "Enter Start Date" %>
+  <%= date_field_tag 'end_date', params[:end_date], placeholder: "Enter End Date" %>
+  <%= submit_tag "Search" %>
+<% end %>
 
 </div>
 
 <h2>Trouver votre nanny</h2>
 <div>
   <ul>
+    <% if params[:start_date, :end_date, :moving_area].present? %>
     <% @nannies.each do |nanny| %>
     <li><%= link_to nanny.first_name, nanny_path(nanny)%></li>
     <%= nanny.description %>
