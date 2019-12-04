@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   devise_for :nannies
   devise_for :users
-  root to: 'pages#home'
+  root to: 'nannies#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :nannies, only: [:index, :show] do
-    resources :reservations, only: [:new, :create]
+  devise_scope :nanny do
+    resources :nannies, only: [:index, :show] do
+      resources :reservations, only: [:new, :create]
+    end
   end
 end

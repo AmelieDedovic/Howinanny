@@ -1,4 +1,4 @@
-class ReservationsController < ApplicationController
+class ReservationsController < AuthenticatedController
   before_action :set_nanny
   def new
     @reservation = Reservation.new
