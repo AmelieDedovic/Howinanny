@@ -1,9 +1,14 @@
 <div>
   <h1>Choisissez vos dates</h1>
   <%= form_tag nannies_path, method: :get do %>
-  <%= text_field_tag 'moving_area', params[:moving_area], placeholder: "Choose your moving area"%>
-  <%= date_field_tag 'start_date', params[:start_date], placeholder: "Enter Start Date" %>
-  <%= date_field_tag 'end_date', params[:end_date], placeholder: "Enter End Date" %>
+  <% prompt = params[:moving_area].present? ? params[:moving_area] : "Choose your moving area" %>
+  <%= select_tag :moving_area, raw("<option>France</option><option>Europe</option><option>Monde</option>"), prompt: prompt%>
+
+  <% prompt_start = params[:start_date].present? ? params[:start_date] :  DateTime.now.strftime("%Y-%m-%d")%>
+  <%= date_field_tag :start_date, prompt_start %>
+  <% prompt_end = params[:end_date].present? ? params[:end_date] :  DateTime.now.strftime("%Y-%m-%d")%>
+
+  <%= date_field_tag :end_date, prompt_end %>
   <%= submit_tag "Search" %>
 <% end %>
 
@@ -20,3 +25,4 @@
     <% end %>
   </ul>
 </div>
+
