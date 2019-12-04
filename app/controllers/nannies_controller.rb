@@ -1,5 +1,6 @@
 class NanniesController < ApplicationController
   def index
+    @reservation = Reservation.new
     @nannies = Nanny.all
   end
 

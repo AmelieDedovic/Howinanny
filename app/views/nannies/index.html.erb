@@ -1,11 +1,21 @@
-<h1>Trouver votre nanny</h1>
 <div>
-<ul>
-<% @nannies.each do |nanny| %>
-<li><%= link_to nanny.first_name, nanny_path(nanny)%></li>
-<%= nanny.description %>
-<%= nanny.city %>
-<%= cl_image_tag nanny.photo, height: 300, width: 400, crop: :fill  %>
-<% end %>
-</ul>
+  <h1>Choisissez vos dates</h1>
+  <%# simple_form_for @reservation, url: research_nannies_path do |f| %>
+  <%# f.input :start_date %>
+  <%# f.input :end_date%>
+  <%# f.submit %>
+  <%# end %>
+
+</div>
+
+<h2>Trouver votre nanny</h2>
+<div>
+  <ul>
+    <% @nannies.each do |nanny| %>
+    <li><%= link_to nanny.first_name, nanny_path(nanny)%></li>
+    <%= nanny.description %>
+    <%= nanny.city %>
+    <%= cl_image_tag nanny.photo, height: 300, width: 400, crop: :fill  %>
+    <% end %>
+  </ul>
 </div>
