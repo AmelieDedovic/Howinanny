@@ -12,7 +12,7 @@
 <h2>Trouver votre nanny</h2>
 <div>
   <ul>
-    <% if params[:start_date, :end_date, :moving_area].present? %>
+    <%# if params[:start_date, :end_date, :moving_area].present? %>
     <% @nannies.each do |nanny| %>
     <li><%= link_to nanny.first_name, nanny_path(nanny)%></li>
     <%= nanny.description %>
