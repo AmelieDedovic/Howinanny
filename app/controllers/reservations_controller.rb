@@ -1,5 +1,10 @@
 class ReservationsController < AuthenticatedController
   before_action :set_nanny
+
+  def index
+    #@reservations = Reservation.all
+  end
+
   def new
     @reservation = Reservation.new
   end
