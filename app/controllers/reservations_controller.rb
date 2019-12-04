@@ -29,7 +29,7 @@ class ReservationsController < AuthenticatedController
 
   def set_total_price
     @days = (@reservation.end_date - @reservation.start_date).to_i
-    @reservation.total_price = @days * @reservation.hen.price_per_day
+    @reservation.total_price = @days * @reservation.nanny.price_per_day
   end
 
   def set_nanny
