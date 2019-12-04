@@ -6,4 +6,13 @@ class Nanny < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   mount_uploader :photo, PhotoUploader
+
+  MOVING_AREA = %(France Europe Monde)
+
+  # include PgSearch::Model
+  # pg_search_scope :search_by_moving_area,
+  #   against: [ :moving_area],
+  #   using: {
+  #     tsearch
+  #   }
 end
