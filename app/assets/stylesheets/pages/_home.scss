@@ -1,4 +1,7 @@
 // Specific CSS for your home-page
+body{
+  background-color: white;
+}
 .home-banner{
   background-image: url("girl-bike.jpg");
   background-size: cover;
@@ -26,4 +29,30 @@
   left: 100px;
   top: 0;
 }
-
+.home-service{
+  text-align: center;
+  margin: 24px auto;
+  color: $grey-dark;
+  & h2{
+    font-size: 40px;
+    padding: 32px;
+  }
+}
+.home-cards{
+  display: flex;
+  justify-content: center;
+}
+.service-card{
+  width: 400px;
+  margin: 24px 50px;
+  background-color: $grey-light;
+  padding: 50px 50px;
+  box-shadow: 0 0 20px rgba(40,40,40,0.2);
+  & p{
+    padding: 16px 0;
+  }
+}
+.service-icon{
+  font-size: 40px;
+  padding: 32px 0;
+}
