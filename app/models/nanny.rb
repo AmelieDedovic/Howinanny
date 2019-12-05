@@ -7,6 +7,8 @@ class Nanny < ApplicationRecord
          :recoverable, :rememberable, :validatable
   mount_uploader :photo, PhotoUploader
 
+  monetize :price_per_day_cents
+
   MOVING_AREA = %(France Europe Monde)
 
   # include PgSearch::Model

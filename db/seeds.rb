@@ -24,7 +24,7 @@ puts "Creating data..."
     description: Faker::Lorem.paragraph,
     moving_area: ["France", "Europe", "Monde"].sample,
     birth_date: Faker::Date.birthday(min_age: 18, max_age: 55),
-    price_per_day: Faker::Number.within(range:5..20),
+    price_per_day_cents: Faker::Number.within(range:5..20),
     experience: ['Starter', 'Confirmée', 'Experte'].sample
   )
   nanny.remote_photo_url = "https://media.gettyimages.com/vectors/parasol-beach-umbrella-vector-id1029200830?s=612x612"
