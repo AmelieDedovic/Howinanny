@@ -1,8 +1,8 @@
 class ReservationsController < AuthenticatedController
-  before_action :set_nanny
+  before_action :set_nanny, only: [:new, :create]
 
   def index
-    #@reservations = Reservation.all
+    @reservations = Reservation.all
   end
 
   def new
@@ -24,7 +24,7 @@ class ReservationsController < AuthenticatedController
     end
     set_total_price
     if @reservation.save && dispo == true
-      redirect_to dashboard_path
+      redirect_to reservations_path
     else
       render '../views/reservations/new'
     end

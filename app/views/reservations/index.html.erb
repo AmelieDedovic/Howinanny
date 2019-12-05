@@ -1,0 +1,14 @@
+<h1>Mes Réservations</h1>
+<ul>
+    <% current_user.reservations.each do |resa| %>
+    <li>
+    <%=resa.nanny.first_name%>
+    <%=cl_image_tag resa.nanny.photo, height: 300, width: 400, crop: :fill %>
+    <%=resa.start_date%>
+    <%=resa.end_date%>
+    <%=resa.total_price%>
+    </li>
+    <% end %>
+</ul>
+
+

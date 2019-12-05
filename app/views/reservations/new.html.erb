@@ -5,8 +5,12 @@
   <div class="col-12 col-lg-6 col-lg-4">
     <div class="form-inputs">
       <div class="form-group">
-        <%= f.input :start_date, html5: true %>
-        <%= f.input :end_date, html5: true %>
+        <%= f.input :start_date,
+          html5: true,
+          input_html: { value: session[:start_date] } %>
+        <%= f.input :end_date,
+          html5: true,
+          input_html: { value: session[:end_date] } %>
       </div>
     </div>
   </div>
