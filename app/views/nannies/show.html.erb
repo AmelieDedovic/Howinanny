@@ -21,7 +21,7 @@
         </ul>
       </div>
       <div class="show-price">
-        <%#humanized_money_with_symbol(@nanny.price_per_day_cents) %> <strong>60€</strong>/jour
+        <%#humanized_money_with_symbol(@nanny.price_per_day_cents) %> <strong>60€</strong> / jour
       </div>
     </div>
     <h3>Ma description :</h3>
@@ -36,16 +36,20 @@
   </div>
   <div class="card-right">
     <div class="content-right">
-      <h3>Dates sélectionnées</h3>
-        <ul>
-          <li><%= session[:start_date] %></li>
-          <li><%= session[:end_date] %></li>
-        </ul>
-      <h3>Enfants</h3>
-      <p>1 enfant</p>
-      <h3>Total</h3>
+      <div class="case">
+        <h3>Dates sélectionnées</h3>
+          <ul class="inline">
+            <li>Du <%= session[:start_date] %></li>
+            <li>au <%= session[:end_date] %></li>
+          </ul>
+      </div>
+      <div class="case">
+        <h3>Enfants</h3>
+        <p>1 enfant</p>
+      </div>
+      <h3>Total . . . . . . . . . . . . . . . . . . . . . . . . . . . .  xxx€</h3>
       <span></span>
-      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+      <button type="button" class="btn btn-secondary btn-resa" data-toggle="modal" data-target="#exampleModal">
         Réserver
       </button>
     </div>
