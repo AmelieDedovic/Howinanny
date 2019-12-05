@@ -17,7 +17,7 @@ class NanniesController < ApplicationController
       @nannies.each do |nanny|
         nanny.reservations.try(:each) do |resa|
           if period.overlaps?(resa.start_date.to_s..resa.end_date.to_s)
-            @nannies.reject(nanny)
+            @nannies.where("id != :id", id: nanny.id)
           end
         end
       end
@@ -25,6 +25,7 @@ class NanniesController < ApplicationController
   end
 
   def show
+    @reservation = Reservation.new
     @nanny = Nanny.find(params[:id])
   end
 
