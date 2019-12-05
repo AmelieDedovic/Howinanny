@@ -24,6 +24,25 @@ class ReservationsController < AuthenticatedController
     end
     set_total_price
     if @reservation.save && dispo == true
+
+
+      session = Stripe::Checkout::Session.create(
+          payment_method_types: ['card'],
+          line_items: [{
+            name: @nanny.first_name,
+            images: [@nanny.photo],
+            amount: @reservation.total_price_cents,
+            currency: 'eur',
+            quantity: 1
+          }],
+          success_url: reservations_url(@reservation),
+          cancel_url: reservations_url(@reservation)
+        )
+
+        @reservation.update(checkout_session_id: session.id)
+
+
+
       redirect_to reservations_path
     else
       render '../views/reservations/new'
@@ -34,7 +53,7 @@ class ReservationsController < AuthenticatedController
 
   def set_total_price
     @days = (@reservation.end_date - @reservation.start_date).to_i
-    @reservation.total_price = @days * @reservation.nanny.price_per_day
+    @reservation.total_price_cents = @days * @reservation.nanny.price_per_day_cents * 100
   end
 
   def set_nanny
