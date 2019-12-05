@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   devise_scope :nanny do
     resources :nannies, only: [:index, :show] do
-      resources :reservations, only: [:index, :new, :create]
+      resources :reservations, only: [:new, :create]
     end
   end
+  resources :reservations, only: [:index]
 end
