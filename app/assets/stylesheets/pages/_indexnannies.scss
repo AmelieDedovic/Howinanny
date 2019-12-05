@@ -1,0 +1,89 @@
+.banner {
+  background-image: url("img-index.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  position: relative;
+
+}
+
+.container-banner > h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.container-banner {
+  width: 600px;
+  position: absolute;
+  top: 205px;
+  right: -3px;
+}
+.date-index {
+  padding-top: 22%;
+  font-size: 27px;
+  color: #4A4A4A;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  font-family: roboto;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-nanny {
+  width: 300px;
+  height: 310px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 22px;
+  border-radius: 2%;
+  padding-right: 25px;
+}
+
+.cards > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.profile-pic {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  //padding: 50px;
+  margin: 17px;
+}
+
+.profil-col-6, .age, .city, .rating {
+  margin-bottom: 16px;
+  margin-top: 12px;
+}
+
+.nanny-description {
+  padding: right;
+  margin: 0px;
+  margin-left: 34px;
+}
+
+.fas, fa-star {
+  color: #FFC65A;
+}
+
+.profil-col-6 {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
