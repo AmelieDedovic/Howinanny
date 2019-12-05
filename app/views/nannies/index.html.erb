@@ -1,7 +1,7 @@
 <div>
   <h1>Choisissez vos dates</h1>
   <%= form_tag nannies_path, method: :get do %>
-  <% prompt = params[:moving_area].present? ? params[:moving_area] : "Choose your moving area" %>
+  <% prompt = params[:moving_area].present? ? params[:moving_area] : "Votre zone de déplacement" %>
   <%= select_tag :moving_area, raw("<option>France</option><option>Europe</option><option>Monde</option>"), prompt: prompt%>
 
   <% prompt_start = params[:start_date].present? ? params[:start_date] :  DateTime.now.strftime("%Y-%m-%d")%>
