@@ -1,20 +1,29 @@
 // Specific CSS for your home-page
 .home-banner{
-  background-image: url("home-banner.jpg");
+  background-image: url("girl-bike.jpg");
   background-size: cover;
-  height: 900px;
+  background-position: center;
+  height: 980px;
   overflow: hidden;
   position: relative;
 }
 .home-banner-content{
   width: 500px;
-  font-size:20px;
+  font-size:24px;
   color: $grey-dark;
   position: absolute;
-  right: 60px;
+  right: 80px;
   bottom: 260px;
 }
 .home-btn{
   color: $yellow-dark;
+  font-size: 20px;
+  padding: 4px 16px;
+}
+.home-banner img{
+  height: 280px;
+  position: absolute;
+  left: 100px;
+  top: 0;
 }
 
