@@ -1,13 +1,65 @@
-<h1> Profil de <%= @nanny.first_name%> </h1>
+<div class="show-cards">
+  <div class="card-left">
+    <div class="show-avatar-title d-flex">
+      <div class="description-left">
+        <div class="show-avatar">
+        <%= cl_image_tag @nanny.photo, alt: "C'est la nanny: #{@nanny.first_name}", height: 300, width: 400, crop: :fill %>
+        </div>
 
 <%= @nanny.description %>
 <%= humanized_money_with_symbol(@nanny.price_per_day_cents) %>
 <%= @nanny.city %>
 <%= cl_image_tag @nanny.photo, alt: "C'est la nanny: #{@nanny.first_name}", height: 300, width: 400, crop: :fill %>
+                 
+      </div>
+      <div class="show-title-left">
+        <h2> Profil de <strong> <%= @nanny.first_name%> </strong></h2>
+        <p><i class="fas fa-map-marker-alt"></i>  <%= @nanny.city %> </p>
+        <p><strong>4 <i class="fas fa-star"></i></strong> sur 13 avis </p>
+        <p> Super nounou</p>
+        <h3>Les points à retenir</h3>
+        <ul class="inline">
+          <li><i class="fas fa-volleyball-ball icon"></i></li>
+          <li><i class="fas fa-swimmer icon"></i></li>
+          <li><i class="fas fa-book-open icon"></i></li>
+          <li><i class="fas fa-smoking-ban icon"></i></li>
+        </ul>
+      </div>
+      <div class="show-price">
+        <%#humanized_money_with_symbol(@nanny.price_per_day_cents) %> <strong>60€</strong> / jour
+      </div>
+    </div>
+    <h3>Ma description :</h3>
+      <p> <%= @nanny.description %> Le Lorem Ipsum est simplement du faux texte employé dans la composition et la
+      mise en page avant impression. Le Lorem Ipsum est le faux texte standard de
+      l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla
+      ensemble des morceaux de texte pour réaliser un livre spécimen de polices de
+      texte.</p>
+    <br>
+    <span class="btn btn-secondary btn-list"><%= link_to "Revenir à la liste de nannies", nannies_path(@nanny) %></span>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Réserver
-</button>
+  </div>
+  <div class="card-right">
+    <div class="content-right">
+      <div class="case">
+        <h3>Dates sélectionnées</h3>
+          <ul class="inline">
+            <li>Du <%= session[:start_date] %></li>
+            <li>au <%= session[:end_date] %></li>
+          </ul>
+      </div>
+      <div class="case">
+        <h3>Enfants</h3>
+        <p>1 enfant</p>
+      </div>
+      <h3>Total . . . . . . . . xxx€</h3>
+      <span></span>
+      <button type="button" class="btn btn-secondary btn-resa" data-toggle="modal" data-target="#exampleModal">
+        Réserver
+      </button>
+    </div>
+  </div>
+</div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -47,4 +99,4 @@
 
 <%# link_to "Réserver", new_nanny_reservation_path(@nanny) %>
 
-<%= link_to "Revenir à la liste de nannies", nannies_path(@nanny) %>
+

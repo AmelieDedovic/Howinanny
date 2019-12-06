@@ -16,7 +16,7 @@ puts "Creating data..."
 
 10.times do
   nanny = Nanny.new(
-    first_name: Faker::Name.first_name,
+    first_name: Faker::Name.female_first_name,
     last_name: Faker::Name.last_name,
     city: ['Marseille', 'Lyon', 'Toulouse', 'Bordeaux', 'Nantes', 'Lille', 'La Rochelle', 'Montauban', 'Montpellier', 'Dax', 'Aix-en-Provence'].sample,
     email: Faker::Internet.email,
@@ -27,7 +27,7 @@ puts "Creating data..."
     price_per_day_cents: Faker::Number.within(range:5..20),
     experience: ['Starter', 'Confirmée', 'Experte'].sample
   )
-  nanny.remote_photo_url = "https://media.gettyimages.com/vectors/parasol-beach-umbrella-vector-id1029200830?s=612x612"
+  nanny.remote_photo_url = "https://images.unsplash.com/photo-1520512202623-51c5c53957df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1834&q=80"
   nanny.save!
 end
 
