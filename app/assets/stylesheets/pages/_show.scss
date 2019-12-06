@@ -1,6 +1,7 @@
 .show-cards{
   display: grid;
   grid-template-columns: 2fr 1fr;
+  font-size: 20px;
   & a {
     text-decoration: none;
     color: $yellow-light;
@@ -19,13 +20,11 @@
     border-radius: 50%;
     box-shadow: 0 0 18px rgba(48,48,48,0.1);
     margin: 0 32px 32px 0px;
+    object-fit: cover;
   }
 }
-.description-left{
-    font-size: 20px;
-  }
 .card-right{
-  height: 450px;
+  height: 500px;
   background-color: $grey-light;
   box-shadow: 0 0 18px rgba(48,48,48,0.2);
   margin: 32px;
@@ -43,6 +42,7 @@
   font-size: 35px;
   background-color: $grey-light;
   height: 60px;
+  width: 200px;
   margin-top: 30px;
   padding-left: 16px;
   padding-right: 16px;
@@ -76,6 +76,7 @@ ul{
 }
 .icon{
   font-size: 40px;
+  color: $yellow-dark;
 }
 .case{
 border-bottom: solid 1px;
