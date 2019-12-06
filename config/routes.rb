@@ -9,7 +9,10 @@ Rails.application.routes.draw do
       resources :reservations, only: [:new, :create]
     end
   end
-  resources :reservations, only: [:index]  do
-      resources :payments, only: :new
-    end
+  resources :reservations, only: [:index] do
+    resources :payments, only: [:new]
+  end
+  resources :conversations, only: [:show] do
+    resources :messages, only: [:index, :new, :create]
+  end
 end
