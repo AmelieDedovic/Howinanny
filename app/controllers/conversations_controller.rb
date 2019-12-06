@@ -1,5 +1,6 @@
 class ConversationsController < ApplicationController
   before_action :set_nanny
+
   def show
     @conversation = Conversation.find(params[:id])
     @conversation.user = current_user
