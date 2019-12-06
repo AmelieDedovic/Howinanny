@@ -7,6 +7,7 @@
     <%=resa.start_date%>
     <%=resa.end_date%>
     <%=resa.total_price%>
+    <%= link_to 'Payer', new_reservation_payment_path(resa) %>
     </li>
     <% end %>
 </ul>
