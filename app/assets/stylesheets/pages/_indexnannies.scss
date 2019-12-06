@@ -22,15 +22,25 @@
   right: -3px;
 }
 .date-index {
-  padding-top: 22%;
+  position: relative;
+  top: 300px;
   font-size: 27px;
   color: #4A4A4A;
   border-radius: 50px;
   font-weight: lighter;
-  opacity: 0.6;
+
   transition: opacity 0.3s ease;
   font-family: roboto;
+width: 1000px;
+  padding: 15px 0;
+  margin: 0 auto;
+  background-color: rgba(255,255,255,0.4);
+  #start_date, #end_date, #moving_area {
+    border: none;
+    background-color: transparent;
+  }
 }
+
 .cards {
   display: flex;
   flex-wrap: wrap;
