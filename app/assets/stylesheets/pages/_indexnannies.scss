@@ -4,7 +4,9 @@
   background-position: center;
   height: 400px;
   position: relative;
-
+  display: flex;
+//   flex-direction: column;
+//   justify-content: center;
 }
 
 .container-banner > h1 {
@@ -18,48 +20,46 @@
 .container-banner {
   width: 600px;
   position: absolute;
-  top: 205px;
-  right: -3px;
+  top: 100px;
+  right: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
 }
-.date-index {
-  position: relative;
-  top: 300px;
-  font-size: 27px;
-  color: #4A4A4A;
-  border-radius: 50px;
-  font-weight: lighter;
 
-  transition: opacity 0.3s ease;
-  font-family: roboto;
-width: 1000px;
-  padding: 15px 0;
-  margin: 0 auto;
-  background-color: rgba(255,255,255,0.4);
-  #start_date, #end_date, #moving_area {
-    border: none;
-    background-color: transparent;
-  }
+.banner-date-label {
+  color: $grey-dark;
+}
+
+#start_date, #end_date {
+  margin-left: 10px;
+  color: $black;
+  font-size: 20px;
+}
+
+.body-nannies {
+  margin-top: 30px;
 }
 
 .cards {
   display: flex;
   flex-wrap: wrap;
+  padding: 7px;
+  justify-content: space-evenly;
 }
 
 .card-nanny {
-  width: 300px;
-  height: 310px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin: 22px;
   border-radius: 2%;
-  padding-right: 25px;
+  margin: 20px;
 }
 
-.cards > a {
+.card-nanny a {
   text-decoration: none;
   color: inherit;
 }
+
 
 .profile-pic {
   width: 90px;
@@ -67,7 +67,7 @@ width: 1000px;
   border-radius: 50%;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   //padding: 50px;
-  margin: 17px;
+  margin-right: 17px;
 }
 
 .profil-col-6, .age, .city, .rating {
@@ -81,7 +81,7 @@ width: 1000px;
   margin-left: 34px;
 }
 
-.fas fa-star {
+.fa-star {
   color: #FFC65A;
 }
 
@@ -90,10 +90,51 @@ width: 1000px;
   font-weight: bold;
 }
 
+.date-index {
+    font-size: 20px;
+    color: #4A4A4A;
+    border-radius: 5px;
+    font-weight: lighter;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+    font-family: roboto;
+    padding: 5px 5px;
+    margin: 0 auto;
+        margin-bottom: 20px;
 
+    #start_date, #end_date, #moving_area {
+       border: none;
+       background-color: transparent;
+  }
+}
 
+.btn {
+  color: $grey-dark;
+  padding: 15px 24px;
+  border-radius: 2px;
+  font-weight: bold;
+  font-size: 20px;
+  background: #FEE187;
+  transition: background 0.3s ease;
+  border: 1px solid #FEE187;
+}
 
+.btn-gradient:hover {
+  background: linear-gradient(#147EFF, #0F67DA);
+  color: white;
+}
 
+.card-top {
+ padding-top: 20px;
+}
 
+.bg-gray {
+  background-color: rgba(255,255,255,0.5);
+  margin-right: 10px;
+  padding: 15px;
+}
 
+.fas fa-map-pin {
+  padding: 10px;
+}
 

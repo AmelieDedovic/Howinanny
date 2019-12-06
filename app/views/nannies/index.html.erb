@@ -1,40 +1,43 @@
 <div class="banner">
   <div class="container-banner">
+    <%= image_tag("montagne.png") %>
     <h1>Créateurs de vacances de rêves pour les parents et leurs enfants.</h1>
   </div>
-  <div class="date-index d-flex justify-content-center">
-    <%= form_tag nannies_path, method: :get do %>
-    <% prompt_start = params[:start_date].present? ? params[:start_date] :  DateTime.now.strftime("%Y-%m-%d")%>
-    <%= date_field_tag :start_date, prompt_start  %>
-    <% prompt_end = params[:end_date].present? ? params[:end_date] :  DateTime.now.strftime("%Y-%m-%d")%>
-    <%= date_field_tag :end_date, prompt_end %>
-    <% prompt = params[:moving_area].present? ? params[:moving_area] : "Destination" %>
-    <%= select_tag :moving_area, raw("<option>France</option><option>Europe</option><option>Monde</option>"), prompt: prompt%>
-    <%= submit_tag "Nanny Go" %>
-    <% end %>
+  <div class="date-index d-flex align-self-end">
+    <div class="bg-gray">
+      <%= form_tag nannies_path, method: :get do %>
+        <% prompt_start = params[:start_date].present? ? params[:start_date] :  DateTime.now.strftime("%Y-%m-%d")%>
+        <span class="banner-date-label">Départ</span><%= date_field_tag :start_date, prompt_start %>
+        <% prompt_end = params[:end_date].present? ? params[:end_date] :  DateTime.now.strftime("%Y-%m-%d")%>
+        <span class="banner-date-label">Retour</span><%= date_field_tag :end_date, prompt_end %>
+        <% prompt = params[:moving_area].present? ? params[:moving_area] : "Où ?" %>
+        <%= select_tag :moving_area, raw("<option>France</option><option>Europe</option><option>Monde</option>"), prompt: prompt%>
+      <% end %>
+    </div>
+     <div class="btn">Nanny Go</div>
   </div>
+
 </div>
 <div class="cards">
   <% @nannies.each do |nanny| %>
-    <%= link_to nanny_path(nanny) do %>
-      <div class="card-nanny">
-        <div class="row">
-          <div class="col-6">
-            <%= cl_image_tag nanny.photo,class: "profile-pic", crop: :fill  %>
-          </div>
-          <div class="profil-col-6">
-
-              <%= nanny.first_name %> <%= nanny.last_name %>
-
+    <div class="card-nanny col-12 col-md-6 col-lg-3">
+      <%= link_to nanny_path(nanny) do %>
+        <div class= "card-top d-flex">
+          <%= cl_image_tag nanny.photo,class: "profile-pic", crop: :fill  %>
+          <div class="infos">
+            <h4><%= "#{nanny.first_name} #{nanny.last_name}"%></h4>
             <p class="age"><%= [22, 19, 30, 25].sample %> ans</p>
-            <p class="city"><%= nanny.city %></p>
-            <p class="rating">4 <i class="fas fa-star"></i> sur 13 avis</p>
-          </div>
-          <div class="nanny-description">
-            <%= nanny.description %>
+            <div class="d-flex">
+              <i class="fas fa-map-pin"></i>
+              <p class="city"><%= nanny.city %></p>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+        <div class="description">
+          <p class="rating">4 <i class="fas fa-star"></i> sur 13 avis</p>
+          <p><%= nanny.description.truncate(150) %></p>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 </div>
