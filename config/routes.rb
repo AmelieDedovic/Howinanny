@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   devise_scope :nanny do
     resources :nannies, only: [:index, :show] do
       resources :reservations, only: [:new, :create]
+      resources :conversations, only: [:index]
     end
   end
   resources :reservations, only: [:index] do
     resources :payments, only: [:new]
   end
-  resources :conversations, only: [:show] do
-    resources :messages, only: [:index, :new, :create]
-  end
+
+  resources :messages, only: [:index, :new, :create]
 end

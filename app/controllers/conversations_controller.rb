@@ -1,11 +1,11 @@
-class ConversationsController < ApplicationController
+class ConversationsController < AuthenticatedController
   before_action :set_nanny
 
-  def show
-    @conversation = Conversation.find(params[:id])
+  def index
+    @conversation = Conversation.find_or_create_by(user_id: current_user.id, nanny_id: @nanny.id)
     @conversation.user = current_user
     @conversation.nanny = @nanny
-    @conversation.messages
+    @messages = @conversation.messages.order(:created_at)
   end
 
   private
