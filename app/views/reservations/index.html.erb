@@ -1,15 +1,29 @@
-<h1>Mes Réservations</h1>
-<ul>
+<div class="container-resa">
+  <h1>Mes Réservations</h1>
+  <div class="cards-resa">
     <% current_user.reservations.each do |resa| %>
-    <li>
-    <%=resa.nanny.first_name%>
-    <%=cl_image_tag resa.nanny.photo, height: 300, width: 400, crop: :fill %>
-    <%=resa.start_date%>
-    <%=resa.end_date%>
-    <%=resa.total_price%>
-    <%= link_to 'Payer', new_reservation_payment_path(resa) %>
-    </li>
+    <div class="card-resa">
+      <div class="top-card-resa">
+        <div class="imgresa">
+        <%=cl_image_tag resa.nanny.photo, class: "imgresa",height: 70, width: 70, crop: :fill %>
+        </div>
+        <p>Vos vacances avec <%=resa.nanny.first_name%></p>
+      </div>
+      <div class="dates">
+        <p><i class="far fa-calendar-alt mr-2"></i> <%=resa.start_date.day%>/<%=resa.start_date.month%>/<%=resa.start_date.year%> <i class="fas fa-caret-right mr-2 ml-2"></i> <%=resa.end_date.day%>/<%=resa.end_date.month%>/<%=resa.end_date.year%></p>
+      </div>
+      <div class="bottom-card-resa">
+        <p> <strong><%=resa.total_price%>€</strong></p>
+        <div class="pay">
+          <div class="highlight-container">
+            <div class="highlight">
+              <%= link_to 'Payer', new_reservation_payment_path(resa) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <% end %>
-</ul>
-
+  </div>
+</div>
 
