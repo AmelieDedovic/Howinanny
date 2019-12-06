@@ -2,14 +2,21 @@
 body{
   background-color: white;
   color: $grey-dark;
+  font-size: 16px;
 }
 .home-banner{
-  background-image: url("girl-bike.jpg");
+  background-image: url("https://images.unsplash.com/photo-1555482000-9ea363917a18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
   background-size: cover;
   background-position: center;
   height: 980px;
   overflow: hidden;
   position: relative;
+  & img{
+    height: 230px;
+    position: absolute;
+    left: 100px;
+    top: 0;
+  }
 }
 .home-banner-content{
   width: 500px;
@@ -21,14 +28,7 @@ body{
 }
 .home-btn{
   color: $yellow-dark;
-  font-size: 20px;
   padding: 4px 16px;
-}
-.home-banner img{
-  height: 280px;
-  position: absolute;
-  left: 100px;
-  top: 0;
 }
 .home-service{
   text-align: center;
