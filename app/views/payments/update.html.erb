@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row py-4">
+    <div class="col-md-3"><%= cl_image_tag @reservation.nanny.photo, width: '100%' %></div>
+    <div class="col">
+      <h1>Checkout summary</h1>
+      <p>Votre réservation avec <strong><%= @reservation.nanny.first_name %></strong> for <strong><%= humanized_money_with_symbol @reservation.total_price %></strong></p>
+      <!-- <button id="pay" class="btn btn-primary">Partager avec ...</button>
+      <input type="email" placeholder="Email of friend n°1"> -->
+
+      <script src="/wp-includes/js/addInput.js" language="Javascript" type="text/javascript"></script>
+      <form method="POST">
+           <div id="dynamicInput">
+                Email 1<br><input type="email" name="myInputs[]">
+           </div>
+           <input type="button" value="Ajouter une addresse Email" onClick="addInput('dynamicInput');">
+      </form>
+      <script>
+        var counter = 1;
+        var limit = 10;
+        function addInput(divName){
+             if (counter == limit)  {
+                  alert("Vous avez atteint le nombre maximum d'email pour partager vos frais");
+             }
+             else {
+                  var newdiv = document.createElement('div');
+                  newdiv.innerHTML = "Entry " + (counter + 1) + " <br><input type='email' name='myInputs[]'>";
+                  document.getElementById(divName).appendChild(newdiv);
+                  counter++;
+             }
+        }
+      </script>
+
+
+<!-- <script>const paymentButton = document.getElementById('pay');
+paymentButton.addEventListener('click', () => {
+  const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+  stripe.redirectToCheckout({
+    sessionId: '<%= @reservation.checkout_session_id %>'
+  });
+});
+</script> -->
+    </div>
+  </div>
+</div>

@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     end
   end
   resources :reservations, only: [:index] do
-      resources :payments, only: :new
+    resources :payments, only: [:new]
+    patch 'payments', to: 'payments#update'
   end
+
+
 end
