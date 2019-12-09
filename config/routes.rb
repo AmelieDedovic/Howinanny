@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :nannies
   devise_for :users
   root to: 'pages#home'
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   devise_scope :nanny do
@@ -13,6 +14,5 @@ Rails.application.routes.draw do
   resources :reservations, only: [:index] do
     resources :payments, only: [:new]
   end
-
   resources :messages, only: [:index, :create]
 end

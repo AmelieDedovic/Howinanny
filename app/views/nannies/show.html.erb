@@ -6,11 +6,6 @@
         <%= cl_image_tag @nanny.photo, alt: "C'est la nanny: #{@nanny.first_name}", height: 300, width: 400, crop: :fill %>
         </div>
 
-<%= @nanny.description %>
-<%= humanized_money_with_symbol(@nanny.price_per_day_cents) %>
-<%= @nanny.city %>
-<%= cl_image_tag @nanny.photo, alt: "C'est la nanny: #{@nanny.first_name}", height: 300, width: 400, crop: :fill %>
-
       </div>
       <div class="show-title-left">
         <h2> Profil de <strong> <%= @nanny.first_name%> </strong></h2>
@@ -26,7 +21,7 @@
         </ul>
       </div>
       <div class="show-price">
-        <%#humanized_money_with_symbol(@nanny.price_per_day_cents) %> <strong>60€</strong> / jour
+        <%= humanized_money_with_symbol(@nanny.price_per_day_cents) %> <!-- <strong>60€</strong> --> / jour
       </div>
     </div>
     <h3>Ma description :</h3>
