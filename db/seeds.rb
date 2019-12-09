@@ -8,9 +8,11 @@
 require 'faker'
 
 puts 'Cleaning database...'
-Nanny.destroy_all
 User.destroy_all
+Nanny.destroy_all
 Reservation.destroy_all
+Conversation.destroy_all
+Message.destroy_all
 
 puts 'Creating data...'
 
@@ -254,4 +256,3 @@ user5.remote_photo_url = 'https://unsplash.com/photos/AWidiBoRO08'
 user5.save!
 
 puts 'Database created !!'
-

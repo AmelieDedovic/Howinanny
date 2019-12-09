@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     @message.conversation = @conversation
     @message.user_type = "user"
     if @message.save
-      redirect_to nanny_conversations_path(@conversation)
+      redirect_to nanny_conversations_path(@conversation.nanny)
     end
   end
 
