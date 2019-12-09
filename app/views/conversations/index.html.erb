@@ -2,27 +2,30 @@
 <div class="chat-page">
   <div class="sender">
     <p><%= current_user.first_name %></p>
+    <img src=<%= current_user.photo %> alt="" class="avatar-message">
+    <p>1 enfant à divertir</p>
+    <p>Destination : Biarritz</p>
     <p><%= @conversation.nanny.first_name %></p>
   </div>
 
 
   <div class="chat-box">
-    <% @messages.each do |m| %>
-      <ul>
-        <li><%= current_user.first_name %> - <%= time_ago_in_words(m.created_at) %></li>
-        <li><%= m.content %></li>
-      </ul>
-    <% end %>
+    <div class="messages-chat-box">
+      <% @messages.each do |m| %>
+        <ul>
+          <li><%= current_user.first_name %> - <%= time_ago_in_words(m.created_at) %></li>
+          <li><%= m.content %></li>
+        </ul>
+      <% end %>
+    </div>
 
-    <%= form_for @message do |f| %>
-      <div class="field">
-        <%= f.text_area :content, placeholder: "Votre message" %>
-        <%= f.hidden_field :conversation_id, value: @conversation.id%>
-      </div>
-
-      <%= f.submit "Envoyer", method: :post%>
-      <i class="fas fa-angle-double-right"></i>
-    <% end %>
+    <!-- <div class="field-message"> -->
+        <%= form_for @message do |f| %>
+          <%= f.text_area :content, placeholder: "Votre message", class: "message" %>
+          <%= f.hidden_field :conversation_id, value: @conversation.id%>
+          <%= f.submit "Envoyer", class: "btn btn-secondary", method: :post%>
+        <% end %>
+    <!-- </div> -->
   </div>
 
   <div class="recap">
@@ -38,9 +41,11 @@
         <li>Service nounou : <%= nanny_day %> €/jour</li>
         <li>Estimation totale : <%= total_time*nanny_day %> €</li>
       </ul>
+
+    <button type="button" class="btn btn-secondary btn-resa" data-toggle="modal" data-target="#exampleModal">
+      Réserver
+    </button>
   </div>
 
-  <button type="button" class="btn btn-secondary btn-resa" data-toggle="modal" data-target="#exampleModal">
-    Réserver
-  </button>
+
 </div>
