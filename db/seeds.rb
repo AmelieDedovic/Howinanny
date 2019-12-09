@@ -189,7 +189,7 @@ nanny12 = Nanny.new(
   email: 'solmaz.khazen@gmail.com',
   password: 'password',
   description: "Nounou diplômée CAP petite enfance et 1ers secours je recherche un enfant à garder pendant les vacances scolaires. 
-              Je garde des enfants depuis septembre 2012.Je suis douce et patiente, attentive à leur sécurité. Au plaisir d'échanger avec vous.",
+              Je garde des enfants depuis septembre 2012. Je suis douce et patiente, attentive à leur sécurité. Au plaisir d'échanger avec vous.",
   moving_area: 'Monde',
   birth_date: '1988-01-01',
   price_per_day_cents: 37,

@@ -27,15 +27,15 @@
           <div class="infos">
             <h4><%= "#{nanny.first_name} #{nanny.last_name}"%></h4>
             <p class="age"><%= [22, 19, 30, 25].sample %> ans</p>
-            <div class="d-flex">
-              <i class="fas fa-map-pin"></i>
+            <div class="d-flex align-items-center">
+              <i class="fas fa-map-marker-alt"></i>
               <p class="city"><%= nanny.city %></p>
             </div>
           </div>
         </div>
         <div class="description">
           <p class="rating">4 <i class="fas fa-star"></i> sur 13 avis</p>
-          <p><%= nanny.description.truncate(150) %></p>
+          <p><%= nanny.description.split.first(25).join(" ") + " ..." %></p>
         </div>
       <% end %>
     </div>
