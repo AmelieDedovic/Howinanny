@@ -28,7 +28,7 @@ nanny1 = Nanny.new(
   price_per_day_cents: 36,
   experience: 'Confirmed'
 )
-nanny1.remote_photo_url = 'https://unsplash.com/photos/mEZ3PoFGs_k'
+nanny1.remote_photo_url = 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=1834&q=80'
 nanny1.save!
 
 nanny2 = Nanny.new(
@@ -43,7 +43,7 @@ nanny2 = Nanny.new(
   price_per_day_cents: 28,
   experience: 'Started'
 )
-nanny2.remote_photo_url = 'https://unsplash.com/photos/a5sRFieA3BY'
+nanny2.remote_photo_url = 'https://images.unsplash.com/photo-1566807810030-3eaa60f3e670?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1834&q=80'
 nanny2.save!
 
 nanny3 = Nanny.new(
@@ -58,7 +58,7 @@ nanny3 = Nanny.new(
   price_per_day_cents: 37,
   experience: 'Confirmed'
 )
-nanny3.remote_photo_url = 'https://unsplash.com/photos/O-8x3mz7ncM'
+nanny3.remote_photo_url = 'https://images.unsplash.com/photo-1566938472928-1dcb0b58a7bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1834&q=80'
 nanny3.save!
 
 nanny4 = Nanny.new(
@@ -73,7 +73,7 @@ nanny4 = Nanny.new(
   price_per_day_cents: 40,
   experience: 'Expert'
 )
-nanny4.remote_photo_url = 'https://unsplash.com/photos/yH2WMrdLMYs'
+nanny4.remote_photo_url = 'https://images.unsplash.com/photo-1546107174-aafb685235a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
 nanny4.save!
 
 nanny5 = Nanny.new(
@@ -88,7 +88,7 @@ nanny5 = Nanny.new(
   price_per_day_cents: 38,
   experience: 'Expert'
 )
-nanny5.remote_photo_url = 'https://unsplash.com/photos/pbBpgLfhSMo'
+nanny5.remote_photo_url = 'https://images.unsplash.com/photo-1525879000488-bff3b1c387cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1834&q=80'
 nanny5.save!
 
 nanny6 = Nanny.new(
@@ -103,7 +103,7 @@ nanny6 = Nanny.new(
   price_per_day_cents: 36,
   experience: 'Confirmed'
 )
-nanny6.remote_photo_url = 'https://unsplash.com/photos/rDEOVtE7vOs'
+nanny6.remote_photo_url = 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
 nanny6.save!
 
 nanny7 = Nanny.new(
@@ -121,7 +121,7 @@ nanny7 = Nanny.new(
   price_per_day_cents: 32,
   experience: 'Started'
 )
-nanny7.remote_photo_url = 'https://unsplash.com/photos/kMgtp2f7yKs'
+nanny7.remote_photo_url = 'https://images.unsplash.com/photo-1510520434124-5bc7e642b61d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1834&q=80'
 nanny7.save!
 
 nanny8 = Nanny.new(
@@ -136,7 +136,7 @@ nanny8 = Nanny.new(
   price_per_day_cents: 32,
   experience: 'Started'
 )
-nanny8.remote_photo_url = 'https://unsplash.com/photos/hiAdjnXZxl8'
+nanny8.remote_photo_url = 'https://images.unsplash.com/photo-1438109491414-7198515b166b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
 nanny8.save!
 
 nanny9 = Nanny.new(
@@ -151,7 +151,7 @@ nanny9 = Nanny.new(
   price_per_day_cents: 36,
   experience: 'Confirmed'
 )
-nanny9.remote_photo_url = 'https://unsplash.com/photos/plsF6obTgms'
+nanny9.remote_photo_url = 'https://images.unsplash.com/photo-1563306406-e66174fa3787?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1834&q=80'
 nanny9.save!
 
 nanny10 = Nanny.new(
@@ -166,7 +166,7 @@ nanny10 = Nanny.new(
   price_per_day_cents: 32,
   experience: 'Started'
 )
-nanny10.remote_photo_url = 'https://unsplash.com/photos/tTUSgZ8uLkk'
+nanny10.remote_photo_url = 'https://images.unsplash.com/photo-1472849676747-48a51c0c30b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
 nanny10.save!
 
 nanny11 = Nanny.new(
@@ -181,7 +181,7 @@ nanny11 = Nanny.new(
   price_per_day_cents: 28,
   experience: 'Started'
 )
-nanny11.remote_photo_url = 'https://unsplash.com/photos/JTtWu85K9So'
+nanny11.remote_photo_url = 'https://images.unsplash.com/photo-1484328861630-cf73b7d34ea3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80'
 nanny11.save!
 
 nanny12 = Nanny.new(
@@ -197,7 +197,7 @@ nanny12 = Nanny.new(
   price_per_day_cents: 37,
   experience: 'Expert'
 )
-nanny12.remote_photo_url = 'https://unsplash.com/photos/PA0vICn6DwE'
+nanny12.remote_photo_url = 'https://images.unsplash.com/photo-1468011749792-10026eb12caf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
 nanny12.save!
 
 user1 = User.new(
@@ -208,7 +208,7 @@ user1 = User.new(
   password: 'password',
   description: "Bonjour, nous recherchons une nanny sympathique pour partager nos vacances en Italie, à Rome ! Nous avons deux enfants en bas âge, Arthur à 1 an et Léa son aînée est agée de 6 ans. Les enfants adorent pratiquer des activités physiques alors que les parents privilégient les visites (expo, musée). A bientôt !",
 )
-user1.remote_photo_url = 'https://unsplash.com/photos/H6qHAfbss4c'
+user1.remote_photo_url = 'https://images.unsplash.com/photo-1532441390534-47546aae8483?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1778&q=80'
 user1.save!
 
 user2 = User.new(
@@ -219,7 +219,7 @@ user2 = User.new(
   password: 'password',
   description: "Bonjour les Howinanny, après avoir beaucoup entendu parler du site, nous souhaitons à notre tour passer de superbes vacances en famille avec une personne de confiance qui saura être à l'écoute des besoins de la famille. Nos jumeaux sont agés de 6 ans et possèdent beaucoup d'énergie. Notre prochaine destination sera à Tel Aviv. Au plaisir de rencontrer notre future nannie de vacances.",
 )
-user2.remote_photo_url = 'https://unsplash.com/photos/R_vzvCfcGxI'
+user2.remote_photo_url = 'https://images.unsplash.com/photo-1527070315420-2953657c98dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
 user2.save!
 
 user3 = User.new(
@@ -230,7 +230,7 @@ user3 = User.new(
   password: 'password',
   description: "Nous sommes une famille avec un garçon de deux ans et notre aînée Charlotte qui elle a 10 ans. Nous sommes à la recherche d'une nounou qui sera disponible et intéressée pour partir avec nous en Grèce. Nous aimerions que Charlotte puisse profiter pour s'initier à la planche à voile. A bientôt !"
 )
-user3.remote_photo_url = 'https://unsplash.com/photos/xGnnOE8p29g'
+user3.remote_photo_url = 'https://images.unsplash.com/photo-1575304339466-6233e97d7247?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
 user3.save!
 
 user4 = User.new(
@@ -241,7 +241,7 @@ user4 = User.new(
   password: 'password',
   description: "Recherchons nounous pour deux familles qui partent en vacances en Corse cet été. Les enfants adorent se baigner et les parents siroter en les regardant s'amuser. A très vite pour faire connaissance.",
 )
-user4.remote_photo_url = 'https://unsplash.com/photos/pIsHOl77zzA'
+user4.remote_photo_url = 'https://images.unsplash.com/photo-1498150590586-ee95c39abf96?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80'
 user4.save!
 
 user5 = User.new(
@@ -252,7 +252,7 @@ user5 = User.new(
   password: 'password',
   description: "Bonjour, nous partons pendant les vacances d'hier en Guadeloupe. Nous avons deux enfants, Alain et Mia (6 ans) qui adorerait pouvoir profiter d'activités pendant que papa et maman partent en randonnée, à très vite !",
 )
-user5.remote_photo_url = 'https://unsplash.com/photos/AWidiBoRO08'
+user5.remote_photo_url = 'https://images.unsplash.com/photo-1466358233012-14413ad4e76f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1649&q=80'
 user5.save!
 
 puts 'Database created !!'
