@@ -1,0 +1,51 @@
+<h1>Messagerie</h1>
+<div class="chat-page">
+  <div class="sender">
+    <p><%= current_user.first_name %></p>
+    <img src=<%= current_user.photo %> alt="" class="avatar-message">
+    <p>1 enfant à divertir</p>
+    <p>Destination : Biarritz</p>
+    <p><%= @conversation.nanny.first_name %></p>
+  </div>
+
+
+  <div class="chat-box">
+    <div class="messages-chat-box">
+      <% @messages.each do |m| %>
+        <ul>
+          <li><%= current_user.first_name %> - <%= time_ago_in_words(m.created_at) %></li>
+          <li><%= m.content %></li>
+        </ul>
+      <% end %>
+    </div>
+
+    <div class="field-message">
+        <%= form_for @message do |f| %>
+          <%= f.text_area :content, placeholder: "Votre message", class: "message" %>
+          <%= f.hidden_field :conversation_id, value: @conversation.id%>
+          <%= f.submit "Envoyer", class: "btn btn-secondary btn-send", method: :post%>
+        <% end %>
+    </div>
+  </div>
+
+  <div class="recap">
+    <h3>Récapitulatif</h3>
+      <ul class="inline">
+        <li>Du <%= start = session[:start_date] %></li>
+        <li>au <%= ended = session[:end_date] %></li>
+        <% time = ended.to_time - start.to_time %>
+      </ul>
+      <p>Durée du séjour : <%= total_time = time.to_i/86400 %> jours </p>
+      <ul>
+        <% nanny_day = @conversation.nanny.price_per_day_cents %>
+        <li>Service nounou : <%= nanny_day %> €/jour</li>
+        <li>Estimation totale : <%= total_time*nanny_day %> €</li>
+      </ul>
+
+    <button type="button" class="btn btn-secondary btn-resa" data-toggle="modal" data-target="#exampleModal">
+      Réserver
+    </button>
+  </div>
+
+
+</div>

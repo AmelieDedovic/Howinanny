@@ -15,6 +15,24 @@ ActiveRecord::Schema.define(version: 2019_12_09_085519) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "conversations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "nanny_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nanny_id"], name: "index_conversations_on_nanny_id"
+    t.index ["user_id"], name: "index_conversations_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "conversation_id"
+    t.string "user_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+  end
+
   create_table "nannies", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -67,6 +85,9 @@ ActiveRecord::Schema.define(version: 2019_12_09_085519) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "conversations", "nannies"
+  add_foreign_key "conversations", "users"
+  add_foreign_key "messages", "conversations"
   add_foreign_key "reservations", "nannies"
   add_foreign_key "reservations", "users"
 end
