@@ -23,7 +23,7 @@
         <%= form_for @message do |f| %>
           <%= f.text_area :content, placeholder: "Votre message", class: "message" %>
           <%= f.hidden_field :conversation_id, value: @conversation.id%>
-          <%= f.submit "Envoyer", class: "btn btn-secondary", method: :post%>
+          <%= f.submit "Envoyer", class: "btn btn-secondary btn-send", method: :post%>
         <% end %>
     <!-- </div> -->
   </div>
