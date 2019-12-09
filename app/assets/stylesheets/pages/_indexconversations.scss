@@ -24,14 +24,12 @@ h1{
   }
 }
 
-.messages-chat-box{
-  box-sizing: border-box;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  width: 100%;
+.field-message{
+
 }
 .new_message{
-  padding-top: 62%;
+  position: absolute;
+  bottom: 16px;
   display: flex;
   align-items: center;
 }
@@ -39,5 +37,5 @@ h1{
   margin-left: 16px;
 }
 .message{
-  width: 85%;
+  width: 550px;
 }
