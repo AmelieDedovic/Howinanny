@@ -23,29 +23,27 @@ class ReservationsController < AuthenticatedController
       end
     end
     set_total_price
-    if @reservation.save && dispo == true
-
+    if dispo == true && @reservation.save
 
       session = Stripe::Checkout::Session.create(
-          payment_method_types: ['card'],
-          line_items: [{
-            name: @nanny.first_name,
-            images: [@nanny.photo],
-            amount: @reservation.total_price_cents,
-            currency: 'eur',
-            quantity: 1
-          }],
-          success_url: reservations_url(@reservation),
-          cancel_url: reservations_url(@reservation)
-        )
+        payment_method_types: ['card'],
+        line_items: [{
+          name: @nanny.first_name,
+          images: [@nanny.photo],
+          amount: @reservation.total_price_cents,
+          currency: 'eur',
+          quantity: 1
+        }],
+        success_url: reservations_url(@reservation),
+        cancel_url: reservations_url(@reservation)
+      )
 
-        @reservation.update(checkout_session_id: session.id)
-
-
+      @reservation.update(checkout_session_id: session.id)
 
       redirect_to reservations_path
     else
-      render '../views/reservations/new'
+      @nannies = Nanny.all
+      render '../views/nannies/index'
     end
   end
 
@@ -61,7 +59,6 @@ class ReservationsController < AuthenticatedController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:start_date, :end_date, :user_id, :nanny_id)
+    params.require(:reservation).permit(:start_date, :end_date, :user_id, :nanny_id, :state)
   end
-
 end

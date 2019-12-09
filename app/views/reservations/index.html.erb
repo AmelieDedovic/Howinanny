@@ -7,7 +7,7 @@
         <div class="imgresa">
         <%=cl_image_tag resa.nanny.photo, class: "imgresa",height: 70, width: 70, crop: :fill %>
         </div>
-        <p>Vos vacances avec <%=resa.nanny.first_name%></p>
+        <p>Mes vacances avec <%=resa.nanny.first_name%></p>
       </div>
       <div class="dates">
         <p><i class="far fa-calendar-alt mr-2"></i> <%=resa.start_date.day%>/<%=resa.start_date.month%>/<%=resa.start_date.year%> <i class="fas fa-caret-right mr-2 ml-2"></i> <%=resa.end_date.day%>/<%=resa.end_date.month%>/<%=resa.end_date.year%></p>
@@ -17,7 +17,11 @@
         <div class="pay">
           <div class="highlight-container">
             <div class="highlight">
-              <%= link_to 'Payer', new_reservation_payment_path(resa) %>
+              <% if resa.state == 'pending'%>
+                <%= link_to 'A payer', new_reservation_payment_path(resa) %>
+              <% else %>
+                <%= resa.state %>
+              <% end %>
             </div>
           </div>
         </div>

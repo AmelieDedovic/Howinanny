@@ -12,9 +12,9 @@
         <span class="banner-date-label">Retour</span><%= date_field_tag :end_date, prompt_end %>
         <% prompt = params[:moving_area].present? ? params[:moving_area] : "Où ?" %>
         <%= select_tag :moving_area, raw("<option>France</option><option>Europe</option><option>Monde</option>"), prompt: prompt%>
-      <% end %>
     </div>
-     <div class="btn">Nanny Go</div>
+     <%= submit_tag "Nanny Go", class:"btn" %>
+     <% end %>
   </div>
 
 </div>
