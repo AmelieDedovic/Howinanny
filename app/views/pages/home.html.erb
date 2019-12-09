@@ -1,41 +1,51 @@
 <div class="home-banner">
   <%= image_tag "https://res.cloudinary.com/dljfsfpna/image/upload/v1575551825/howinanny-logo.png" %>
+  <%= link_to "Login", new_user_session_path %>
   <div class="home-banner-content">
-    <p>Chez nous, les vacances c’est sacré !
-    Nous vous proposons de trouver LA nounou
-    qui va vous accompagner au cours de votre
-    séjour. Pour des enfants heureux et des
-    parents détendus.
+    <h1>Les vacances c’est sacré&thinsp;!</h1><br>
+     <p> Howinanny vous propose de trouver LA nounou qui vous accompagnera pendant vos vacances.<br>
+      Pour des enfants heureux et des parents détendus.
     </p>
-    <%= link_to "/nannies" do %>
-    <span class="btn btn-class btn-secondary home-btn">Profitez de ce service</span>
-    <% end %>
   </div>
 </div>
+
+  <div class="date-index d-flex align-self-end">
+    <div class="bg-gray">
+      <%= form_tag nannies_path, method: :get do %>
+        <% prompt_start = params[:start_date].present? ? params[:start_date] :  DateTime.now.strftime("%Y-%m-%d")%>
+        <span class="banner-date-label">Départ</span><%= date_field_tag :start_date, prompt_start %>
+        <% prompt_end = params[:end_date].present? ? params[:end_date] :  DateTime.now.strftime("%Y-%m-%d")%>
+        <span class="banner-date-label">Retour</span><%= date_field_tag :end_date, prompt_end %>
+        <% prompt = params[:moving_area].present? ? params[:moving_area] : "Où ?" %>
+        <%= select_tag :moving_area, raw("<option>France</option><option>Europe</option><option>Monde</option>"), prompt: prompt%>
+      <% end %>
+    </div>
+     <div class="btn">Nanny Go</div>
+  </div>
 
 <div class="home-service">
   <h2>Notre service</h2>
   <div class="home-cards">
     <div class="service-card">
       <i class="far fa-calendar-check service-icon"></i>
-      <h3>PRÉCIS</h3>
-      <p>Trouvez la nounou qui correspond à vos besoins grâce
-      à une sélection de profils en fonction de vos dates et de votre
-      destination de vacances.</p>
+      <h3>EFFICACE</h3>
+      <p>Trouvez la nounou qui correspond à vos attentes grâce
+      à une sélection de profils.<br>
+      En fonction de vos dates, de votre destination de vacances et de vos activités.</p>
     </div>
     <div class="service-card">
       <i class="fas fa-award service-icon"></i>
-      <h3>SÛR</h3>
+      <h3>FIABLE</h3>
       <p>Les nounous sont choisies selon leur expertise, leur profil, leur
-      sérieux et leurs recommandations. Vos enfants
-      seront entre de bonnes mains.</p>
+      sérieux et leurs recommandations.<br>
+      Vos enfants seront entre de bonnes mains.</p>
     </div>
     <div class="service-card">
       <i class="fab fa-angellist service-icon"></i>
-      <h3>COOL</h3>
-      <p>Ce service vous permet deprofiter de vos vacances !
-      Vous pourrez profiter de vos amis et vos enfants feront des
-      activités qui leur plaisent ! C’est que du bonheur !</p>
+      <h3>RELAX</h3>
+      <p>Ce service vous permet de profiter pleinement de vos vacances !<br>
+      Vous pourrez passer du temps avec vos amis pendant que vos enfants feront les
+      activités qu'ils adorent. </p>
     </div>
   </div>
 </div>
