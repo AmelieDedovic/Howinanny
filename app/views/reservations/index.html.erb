@@ -1,7 +1,7 @@
 <div class="container-resa">
   <h1>Mes Réservations</h1>
   <div class="cards-resa">
-    <% current_user.reservations.each do |resa| %>
+    <% @reservations.each do |resa| %>
     <div class="card-resa">
       <div class="top-card-resa">
         <div class="imgresa">
@@ -17,12 +17,12 @@
         <div class="pay">
           <div class="highlight-container">
             <div class="highlight">
-              <% if resa.state == 'pending'%>
+              <% if resa.state == 'pending' %>
                 <div>
                   <%= link_to 'Payer la totalité', new_reservation_payment_path(resa) %>
                 </div>
                 <div>
-                  <%= link_to 'Partager les frais', reservation_payments_path(resa), method: :patch %>
+                  <%= link_to 'Partager les frais', reservation_split_path(resa) %>
                 </div>
               <% else %>
                 <%= resa.state %>
