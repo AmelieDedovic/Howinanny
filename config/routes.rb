@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
   resources :reservations, only: [:index] do
     resources :payments, only: [:new]
+    patch 'payments', to: 'payments#update'
   end
   resources :messages, only: [:index, :create]
 end

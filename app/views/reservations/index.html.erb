@@ -18,7 +18,12 @@
           <div class="highlight-container">
             <div class="highlight">
               <% if resa.state == 'pending'%>
-                <%= link_to 'A payer', new_reservation_payment_path(resa) %>
+                <div>
+                  <%= link_to 'Payer la totalité', new_reservation_payment_path(resa) %>
+                </div>
+                <div>
+                  <%= link_to 'Partager les frais', reservation_payments_path(resa), method: :patch %>
+                </div>
               <% else %>
                 <%= resa.state %>
               <% end %>
