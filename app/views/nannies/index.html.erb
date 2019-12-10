@@ -13,7 +13,7 @@
         <% prompt = params[:moving_area].present? ? params[:moving_area] : "Où ?" %>
         <%= select_tag :moving_area, raw("<option>France</option><option>Europe</option><option>Monde</option>"), prompt: prompt%>
     </div>
-     <%= submit_tag "Nanny Go", class:"btn" %>
+     <%= submit_tag "Nanny Go", class:"btn"%>
      <% end %>
   </div>
 

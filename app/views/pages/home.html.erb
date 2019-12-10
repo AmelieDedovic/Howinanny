@@ -1,31 +1,35 @@
 <div class="home-banner">
   <%= image_tag "https://res.cloudinary.com/dljfsfpna/image/upload/v1575551825/howinanny-logo.png" %>
-  <%= link_to "Login", new_user_session_path %>
+  <% if current_user.nil?%>
+    <%= link_to "Se connecter", new_user_session_path, class: "onglet" %>
+  <% else %>
+    <%= link_to "Mon tableau de bord", reservations_path, class: "onglet" %>
+  <% end %>
   <div class="home-banner-content">
-    <h1>Les vacances c’est sacré&thinsp;!</h1><br>
-     <p> Howinanny vous propose de trouver LA nounou qui vous accompagnera pendant vos vacances.<br>
-      Pour des enfants heureux et des parents détendus.
-    </p>
+    <h4> Les vacances, c’est sacré&thinsp;!<br></h4>
+    <p>Howinanny vous propose de trouver LA nounou qui vous accompagnera pendant vos vacances.<br>
+    <span class="underline">Pour des enfants heureux et des parents détendus.</span></p>
+  </div>
+  <div class="date-home d-flex align-self-end">
+    <div class="bg-gray">
+      <%= form_tag nannies_path, method: :get do %>
+        <% prompt_start = params[:start_date].present? ? params[:start_date] :  DateTime.now.strftime("%Y-%m-%d")%>
+        <span class="banner-date-label">Départ</span><%= date_field_tag :start_date, prompt_start %>
+        <% prompt_end = params[:end_date].present? ? params[:end_date] :  DateTime.now.strftime("%Y-%m-%d")%>
+        <span class="banner-date-label">Retour</span><%= date_field_tag :end_date, prompt_end %>
+        <% prompt = params[:moving_area].present? ? params[:moving_area] : "Où ?" %>
+        <%= select_tag :moving_area, raw("<option>France</option><option>Europe</option><option>Monde</option>"), prompt: prompt%>
+    </div>
+      <%= submit_tag "Nanny Go", class:"btn" %>
+      <% end %>
   </div>
 </div>
-
-  <div class="date-index d-flex align-self-end">
-    <%= form_tag nannies_path, method: :get do %>
-      <div class="bg-gray">
-
-          <% prompt_start = params[:start_date].present? ? params[:start_date] :  DateTime.now.strftime("%Y-%m-%d")%>
-          <span class="banner-date-label">Départ</span><%= date_field_tag :start_date, prompt_start %>
-          <% prompt_end = params[:end_date].present? ? params[:end_date] :  DateTime.now.strftime("%Y-%m-%d")%>
-          <span class="banner-date-label">Retour</span><%= date_field_tag :end_date, prompt_end %>
-          <% prompt = params[:moving_area].present? ? params[:moving_area] : "Où ?" %>
-          <%= select_tag :moving_area, raw("<option>France</option><option>Europe</option><option>Monde</option>"), prompt: prompt%>
-      </div>
-      <%= submit_tag "Nanny Go", class:"btn" %>
-    <% end %>
-
-  </div>
-
-<div class="home-service">
+<div class="chevron">
+<%= link_to "#presentation" do %>
+  <i class="fas fa-chevron-down scroll"></i>
+<% end %>
+</div>
+<div class="home-service" id="presentation">
   <h2>Notre service</h2>
   <div class="home-cards">
     <div class="service-card">
