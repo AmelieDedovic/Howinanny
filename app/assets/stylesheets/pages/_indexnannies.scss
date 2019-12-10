@@ -65,6 +65,7 @@
   width: 90px;
   height: 90px;
   border-radius: 50%;
+  object-fit:cover;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   //padding: 50px;
   margin-right: 17px;
@@ -134,7 +135,10 @@
   padding: 15px;
 }
 
-.fas fa-map-pin {
-  padding: 10px;
+.city {
+  margin-left: 10px;
+  padding-top: 5px;
 }
+
+
 
