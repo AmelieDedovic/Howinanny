@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row py-4">
+    <div class="col-md-3"><%= cl_image_tag @reservation.try(:nanny).try(:photo) || "", width: '100%' %></div>
+    <div class="col">
+      <h1>Checkout summary</h1>
+      <p>Votre réservation avec <strong><%= @reservation.nanny.first_name %></strong> for <strong><%= humanized_money_with_symbol @reservation.total_price %></strong></p>
+      <form method="POST" action="<%= reservation_split_path(@reservation) %>">
+        <div id="dynamicInput">
+          <br><input type="email" name="myInputs[]" placeholder="Email 1">
+        </div>
+        <input type="button" value="Ajouter une addresse Email" onClick="addInput('dynamicInput');">
+        <input type="submit" value="Valider">
+      </form>
+      <script>
+        var counter = 1;
+        var limit = 5;
+        function addInput(divName){
+             if (counter == limit)  {
+                  alert("Vous avez atteint le nombre maximum d'email pour partager vos frais");
+             }
+             else {
+                  var newdiv = document.createElement('div');
+                  newdiv.innerHTML = "Entry " + (counter + 1) + " <br><input type='email' name='myInputs[]'>";
+                  document.getElementById(divName).appendChild(newdiv);
+                  counter++;
+             }
+        }
+      </script>
+    </div>
+  </div>
+</div>
