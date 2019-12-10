@@ -36,7 +36,6 @@ class PaymentsController < ApplicationController
 
     params[:myInputs].each do |mail|
       # if User.where(email: mail) != []
-        mails.times do
           session = Stripe::Checkout::Session.create(
               payment_method_types: ['card'],
               customer_email: mail,
@@ -52,8 +51,9 @@ class PaymentsController < ApplicationController
             )
 
             @reservation.update(checkout_session_id: session.id)
-        end
+
       # end
+      UserMailer.with(user: mail).div_payment.deliver_now
     end
   end
 

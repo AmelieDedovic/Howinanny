@@ -32,7 +32,6 @@ class ReservationsController < AuthenticatedController
           name: @nanny.first_name,
           images: [@nanny.photo],
           amount: @reservation.total_price_cents,
-          customer_email: current_user.email,
           currency: 'eur',
           quantity: 1
         }],
