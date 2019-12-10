@@ -31,6 +31,7 @@
   <div class="recap">
     <h3>Récapitulatif</h3>
       <ul class="inline">
+        <% if session[:start_date].present? && session[:end_date].present? %>
         <li>Du <%= start = session[:start_date] %></li>
         <li>au <%= ended = session[:end_date] %></li>
         <% time = ended.to_time - start.to_time %>
@@ -41,7 +42,12 @@
         <li>Service nounou : <%= nanny_day %> €/jour</li>
         <li>Estimation totale : <%= total_time*nanny_day %> €</li>
       </ul>
-
+      <% else %>
+        <ul>
+          <% nanny_day = @conversation.nanny.price_per_day_cents %>
+          <li>Service nounou : <%= nanny_day %> €/jour</li>
+        </ul>
+      <% end %>
     <button type="button" class="btn btn-secondary btn-resa" data-toggle="modal" data-target="#exampleModal">
       Réserver
     </button>

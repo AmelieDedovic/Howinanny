@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Howinanny</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <%#= javascript_include_tag 'https://checkout.stripe.com/checkout.js' %>
+    <script src="https://js.stripe.com/v3/"></script>
+
+  </head>
+  <body>
+    <% unless current_page?(root_path) %>
+       <%= render 'shared/navbar_nanny' %>
+    <% end %>
+    <%= render 'shared/flashes' %>
+    <%= yield %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
+    <%= render 'shared/footer' %>
+  </body>
+</html>
