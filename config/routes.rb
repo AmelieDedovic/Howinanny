@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resources :reservations, only: [:index] do
     resources :payments, only: [:new]
     patch 'payments', to: 'payments#update'
+    get 'split', to: 'payments#new_split'
+    post 'split', to: 'payments#split'
   end
   resources :messages, only: [:index, :create]
 

@@ -206,9 +206,9 @@ user1 = User.new(
   city: 'Aix-en-Provence',
   email: 'amelie.dedovic@gmail.com',
   password: 'password',
-  description: "Bonjour, nous recherchons une nanny sympathique pour partager nos vacances en Italie, à Rome ! Nous avons deux enfants en bas âge, Arthur à 1 an et Léa son aînée est agée de 6 ans. Les enfants adorent pratiquer des activités physiques alors que les parents privilégient les visites (expo, musée). A bientôt !",
+  description: "Bonjour, nous recherchons une nanny sympathique pour partager nos vacances en Italie, à Rome ! Nous avons deux enfants en bas âge, Arthur a 1 an et Léa son aînée est agée de 6 ans. Les enfants adorent pratiquer des activités physiques alors que les parents privilégient les visites (expo, musée). A bientôt !",
 )
-user1.remote_photo_url = 'https://images.unsplash.com/photo-1532441390534-47546aae8483?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1778&q=80'
+user1.remote_photo_url = 'https://res.cloudinary.com/dljfsfpna/image/upload/v1575971137/photo_cv_o68bsj.png'
 user1.save!
 
 user2 = User.new(

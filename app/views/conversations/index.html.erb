@@ -43,7 +43,7 @@
       <p>Durée du séjour : <%= total_time = time.to_i/86400 %> jours </p>
       <ul>
         <% nanny_day = @conversation.nanny.price_per_day_cents %>
-        <li>Service nounou : <%= nanny_day %> €/jour</li>
+        <li>Tarif journalier : <%= nanny_day %> €/jour</li>
         <li>Estimation totale : <%= total_time*nanny_day %> €</li>
       </ul>
       <% else %>
