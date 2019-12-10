@@ -1,0 +1,6 @@
+<h1>Mes conversations</h1>
+<% @conversations.each do |conv| %>
+<%= conv.nanny.first_name %>
+<%= conv.user.first_name %>
+<%= link_to "Conversation", nanny_space_conversation_path(conv) %>
+<% end %>

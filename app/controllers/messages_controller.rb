@@ -5,8 +5,10 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.conversation = @conversation
     @message.user_type = "user"
-    if @message.save
+    if @message.save && current_user
       redirect_to nanny_conversations_path(@conversation.nanny)
+    else @message.save && current_nanny
+      redirect_to nanny_space_conversation_path(@conversation)
     end
   end
 

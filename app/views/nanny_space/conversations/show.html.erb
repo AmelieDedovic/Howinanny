@@ -1,0 +1,18 @@
+<h1>Messagerie nanny</h1>
+
+<div class="messages-chat-box">
+  <% @conversation.messages.each do |m| %>
+    <ul>
+      <li><%= @conversation.user.first_name %> - <%= time_ago_in_words(m.created_at) %></li>
+      <li><%= m.content %></li>
+    </ul>
+  <% end %>
+</div>
+
+<div class="field-message">
+    <%= form_for @message do |f| %>
+      <%= f.text_area :content, placeholder: "Votre message", class: "message" %>
+      <%= f.hidden_field :conversation_id, value: @conversation.id%>
+      <%= f.submit "Envoyer", class: "btn btn-secondary btn-send", method: :post%>
+    <% end %>
+</div>

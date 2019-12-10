@@ -10,10 +10,16 @@ Rails.application.routes.draw do
       resources :reservations, only: [:new, :create]
       resources :conversations, only: [:index]
     end
+    # get 'dashboard', to: 'nannies#dashboard'
   end
   resources :reservations, only: [:index] do
     resources :payments, only: [:new]
     patch 'payments', to: 'payments#update'
   end
   resources :messages, only: [:index, :create]
+
+  namespace :nanny_space do
+    resources :conversations
+    resources :messages
+  end
 end
