@@ -20,6 +20,6 @@ Rails.application.routes.draw do
 
   namespace :nanny_space do
     resources :conversations
-    resources :messages
+    resources :messages, only: [:new, :create]
   end
 end

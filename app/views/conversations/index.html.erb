@@ -13,7 +13,11 @@
     <div class="messages-chat-box">
       <% @messages.each do |m| %>
         <ul>
+          <% if m.user_type == "user"%>
           <li><%= current_user.first_name %> - <%= time_ago_in_words(m.created_at) %></li>
+          <% else %>
+          <li><%= @conversation.nanny.first_name %> - <%= time_ago_in_words(m.created_at) %></li>
+          <% end %>
           <li><%= m.content %></li>
         </ul>
       <% end %>
