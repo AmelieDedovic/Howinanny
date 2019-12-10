@@ -10,16 +10,15 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
     <%#= javascript_include_tag 'https://checkout.stripe.com/checkout.js' %>
     <script src="https://js.stripe.com/v3/"></script>
-
   </head>
   <body>
     <% unless current_page?(root_path) %>
        <%= render 'shared/navbar' %>
     <% end %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <div class="full-screen"><%= yield %></div>
+    <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-    <%= render 'shared/footer' %>
   </body>
 </html>

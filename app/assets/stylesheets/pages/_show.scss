@@ -1,84 +1,117 @@
 .show-cards{
   display: grid;
   grid-template-columns: 2fr 1fr;
+  grid-gap:5px;
   font-size: 20px;
   & a {
     text-decoration: none;
-    color: $yellow-light;
+    color: $white;
     font-size: 20px;
     padding: 4px 16px;
   }
 }
 .card-left{
-  height: 900px;
+  grid-column:1/2;
+  // height: 900px;
   box-shadow: 0 0 18px rgba(48,48,48,0.1);
-  padding: 56px;
-  margin: 32px;
+  padding: 38px;
+  margin: 30px;
   & img{
-    width: 400px;
-    height: 400px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
     box-shadow: 0 0 18px rgba(48,48,48,0.1);
-    margin: 0 32px 32px 0px;
+    margin: 30px 20px 0px 0px;
     object-fit: cover;
   }
 }
 .card-right{
-  height: 500px;
+  // grid-column:3;
+  // margin: 32px;
+  height: 673px;
   background-color: $grey-light;
   box-shadow: 0 0 18px rgba(48,48,48,0.2);
-  margin: 32px;
-  margin-left: 0;
+  margin: 30px 30px 0px 0px;
 }
 .content-right{
-  padding: 32px;
+  // padding: 32px;
+  padding: 36px 36px 0px 36px;
 }
 .show-title-left{
   padding: 20px;
-  width: 500px;
+  width: 450px;
   font-size: 20px;
 }
 .show-price{
-  font-size: 35px;
+  font-size: 28px;
   background-color: $grey-light;
-  height: 60px;
-  width: 200px;
-  margin-top: 30px;
+  height: 46px;
+  width: 170px;
+  margin-top: 20px;
   padding-left: 16px;
   padding-right: 16px;
 }
+
 .btn-resa{
-  color:$yellow-light;
+  color: white;
+  background-color: $grey-dark;
   font-size: 20px;
   margin-top: 16px;
+  padding: 15px 112px;
 }
+
+.btn-contact{
+  color: white;
+  background-color: $grey-dark;
+  font-size: 20px;
+  margin-top: 50px;
+  padding: 15px 91px;
+  transition: background 0.3s ease;
+}
+
+.btn-list{
+  color:white;
+  background-color: $yellow-dark;
+  font-size: 20px;
+  margin-top: 20px;
+  padding: 15px 91px;
+}
+
 h3{
-  font-size: 32px;
-  padding-top: 16px;
+  font-size: 26px;
+  padding-top: 20px;
+  font-weight: bold;
 }
+
 h2{
-  font-size: 50px;
+  font-size: 38px;
 }
 
 p{
-  font-size: 20px;
+  font-size: 17px;
+  text-align: justify;
 }
+
 strong{
   color: $yellow-dark;
 }
+
 ul{
   padding-left: 0;
 }
+
 .inline li{
   display: inline;
   margin-right: 16px;
-  font-size:20px;
+  font-size:16px;
 }
+
 .icon{
   font-size: 40px;
   color: $yellow-dark;
 }
+
 .case{
 border-bottom: solid 1px;
-margin-bottom: 8px;
+margin-bottom: 14px;
 }
