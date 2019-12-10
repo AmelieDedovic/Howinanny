@@ -60,3 +60,6 @@ body{
   padding: 32px 0;
 }
 
+.full-screen {
+  min-height: calc(100vh - 100px);
+}
