@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :reservations, only: [:new, :create]
       resources :conversations, only: [:index]
     end
+    # get 'dashboard', to: 'nannies#dashboard'
   end
   resources :reservations, only: [:index] do
     resources :payments, only: [:new]
@@ -18,4 +19,9 @@ Rails.application.routes.draw do
     post 'split', to: 'payments#split'
   end
   resources :messages, only: [:index, :create]
+
+  namespace :nanny_space do
+    resources :conversations
+    resources :messages, only: [:new, :create]
+  end
 end
