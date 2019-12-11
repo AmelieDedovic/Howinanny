@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row py-4">
-    <div class="col-md-3"><%= cl_image_tag @reservation.nanny.photo, width: '100%' %></div>
+    <div class="col-md-3"><%= cl_image_tag @payment.reservation.nanny.photo, width: '100%' %></div>
     <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Votre réservation avec <strong><%= @reservation.nanny.first_name %></strong> pour <strong><%= humanized_money_with_symbol @my_price %></strong></p>
+      <h1>Confirmation de réservation</h1>
+      <p>Votre réservation avec <strong><%= @payment.reservation.nanny.first_name %></strong> pour <strong><%= humanized_money_with_symbol @payment.price %></strong></p>
       <button id="pay" class="btn btn-primary">Payer</button>
       <script>
         const paymentButton = document.getElementById('pay');
@@ -11,7 +11,7 @@
           const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
 
           stripe.redirectToCheckout({
-            sessionId: '<%= @reservation.checkout_session_id %>'
+            sessionId: '<%= @payment.checkout_session_id %>'
           });
         });
       </script>

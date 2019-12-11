@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_09_085519) do
+ActiveRecord::Schema.define(version: 2019_12_11_104145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,16 @@ ActiveRecord::Schema.define(version: 2019_12_09_085519) do
     t.index ["reset_password_token"], name: "index_nannies_on_reset_password_token", unique: true
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.bigint "reservation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "checkout_session_id"
+    t.integer "price_cents", default: 0, null: false
+    t.string "state", default: "pending"
+    t.index ["reservation_id"], name: "index_payments_on_reservation_id"
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
@@ -88,6 +98,7 @@ ActiveRecord::Schema.define(version: 2019_12_09_085519) do
   add_foreign_key "conversations", "nannies"
   add_foreign_key "conversations", "users"
   add_foreign_key "messages", "conversations"
+  add_foreign_key "payments", "reservations"
   add_foreign_key "reservations", "nannies"
   add_foreign_key "reservations", "users"
 end
