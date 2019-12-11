@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "/nannies", class: "navbar-brand" do %>
+  <%= link_to "/", class: "navbar-brand" do %>
     <%= image_tag "https://res.cloudinary.com/dljfsfpna/image/upload/v1575551825/howinanny-logo.png" %>
     <% end %>
 
@@ -21,8 +21,7 @@
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Modifier mon profil", edit_nanny_registration_path , class: "dropdown-item" %>
-            <%= link_to "Mes réservations", reservations_path, class: "dropdown-item" %>
-            <%= link_to "Mes conversations", nanny_space_conversations_path, class: "dropdown-item" %>
+            <%= link_to "Mon tableau de bord", nanny_space_conversations_path, class: "dropdown-item" %>
             <%= link_to "Me déconnecter", destroy_nanny_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
