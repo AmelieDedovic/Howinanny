@@ -1,8 +1,8 @@
 Rails.application.configure do
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: "http://howinanny.herokuapp.com" }
-   config.action_mailer.delivery_method = :mailgun
-  config.action_mailer.mailgun_settings = { api_key: ENV["MAILGUN_API_KEY"],
-    domain: 'howinanny.com', }
+
+
 
   # Settings specified here will take precedence over those in config/application.rb.
 
