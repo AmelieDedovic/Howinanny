@@ -8,7 +8,7 @@ body{
   background-image: url("https://images.unsplash.com/photo-1555482000-9ea363917a18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
   background-size: cover;
   background-position: center;
-  height: 800px;
+  height: 970px;
   overflow: hidden;
   display: flex;
   & img{
@@ -20,12 +20,13 @@ body{
   }
 }
 .home-banner-content{
-  width: 350px;
+  width: 450px;
   font-size:24px;
   color: $grey-dark;
   position: absolute;
-  right: 110px;
-  bottom: 265px;
+  right: 104px;
+  top: 472px;
+  margin-right: 14px;
 }
 
 .home-service{
@@ -79,20 +80,28 @@ body{
 }
 h4 {
 font-weight: bold;
+font-size: 2.2rem;
 }
 
 .underline {
-  text-decoration: underline #FDCE0D;
+  background: $yellow-dark;
 }
 
-p {
-  text-align: justify;
-}
+// p {
+//   text-align: justify;
+// }
 
 .onglet {
   position: absolute;
-  right: 20px;
-  top: 10px;
+  right: 30px;
+  top: 14px;
+  font-size: 20px;
+}
+
+.nav-link {
+  position: absolute;
+  right: 166px;
+  top: 6px;
   font-size: 20px;
 }
 
@@ -112,12 +121,12 @@ p {
 }
 
 .pic-pay {
- background-image: url("https://res.cloudinary.com/dljfsfpna/image/upload/v1576062110/pay_wraits.jpg");
-width: 60%;
-height: 500px;
-background-size: cover;
-margin-bottom: 80px;
-margin-right: 45px;
+  background-image: url("https://res.cloudinary.com/dljfsfpna/image/upload/v1576062110/pay_wraits.jpg");
+  width: 60%;
+  height: 500px;
+  background-size: cover;
+  margin-bottom: 80px;
+  margin-right: 45px;
 }
 
 .pay-container {
@@ -133,7 +142,14 @@ margin-right: 45px;
   padding-left: 40px;
   padding-right: 40px;
   text-align: center;
+  padding-top: 60px;
   & p {
     font-size: 21px;
+    padding-top: 20px;
+    text-align: center;
   }
+}
+.p-home {
+  font-size: 26px;
+  margin-bottom: 0px;
 }
