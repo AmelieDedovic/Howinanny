@@ -5,15 +5,14 @@
 .sender{
   width: 300px;
   margin-left: 38px;
-  // box-shadow: 0 0 18px rgba(48,48,48,0.1); --> for real life
-  box-shadow: 0 0 18px rgba(48,48,48,0.4);
+  box-shadow: 0 0 18px rgba(48,48,48,0.1); //--> for real life
   display:flex;
   flex-direction: column;
   align-items: center;
 }
 .senders{
   padding: 18px 0;
-  background-color: $grey-demo;
+  background-color: $grey-light;
   width: 100%;
   text-align: center;
   margin-bottom: 24px;
@@ -35,17 +34,16 @@
   box-shadow: 0 0 18px rgba(48,48,48,0.1);
 }
 .chat-page{
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  display: flex;
   margin-bottom: 48px;
 }
 .chat-box{
   width: 700px;
-  // box-shadow: 0 0 18px rgba(48,48,48,0.1); --> for real life
-  box-shadow: 0 0 18px rgba(48,48,48,0.4);
+  box-shadow: 0 0 18px rgba(48,48,48,0.1); //--> for real life
   padding: 20px;
   height: 500px;
   position: relative;
+  margin-left: 50px;
   & li{
   list-style: none;
   }
@@ -94,4 +92,7 @@
 }
 .message{
   width: 520px;
+}
+.recap{
+  margin-left: 50px;
 }

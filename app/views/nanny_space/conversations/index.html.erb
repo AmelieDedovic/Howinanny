@@ -1,11 +1,13 @@
 <h1>Mes conversations</h1>
 
-<h2> <%= current_nanny.first_name %></h2>
+<h2> Bienvenue dans votre tableau de bord <%= current_nanny.first_name %></h2>
 
 <% @conversations.each do |conv| %>
-<% if conv.nanny.id == current_nanny.id %>
-<%= conv.nanny.first_name %>
-<%= conv.user.first_name %>
-<%= link_to "Conversation", nanny_space_conversation_path(conv) %>
-<% end %>
+  <div class="conv-card">
+    <% if conv.nanny.id == current_nanny.id %>
+      <%= conv.nanny.first_name %>
+      <%= conv.user.first_name %>
+      <%= link_to "Conversation", nanny_space_conversation_path(conv) %>
+    <% end %>
+  </div>
 <% end %>
