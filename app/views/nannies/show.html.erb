@@ -21,7 +21,7 @@
         </ul>
       </div>
       <div class="show-price">
-        <%= humanized_money_with_symbol(@nanny.price_per_day_cents) %> <!-- <strong>60€</strong> --> / jour
+        <%= humanized_money(@nanny.price_per_day_cents)%> <%= currency_symbol %> <!-- <strong>60€</strong> --> / jour
       </div>
     </div>
     <h3>Ma description</h3>
@@ -38,7 +38,7 @@
       <div class="case">
         <h3>Dates sélectionnées</h3>
           <ul class="inline">
-        <li>Du <%= start = session[:start_date] %> au <%= ended = session[:end_date] %></li>
+        <li>Du <%= start = session[:start_date].to_date.strftime("%d/%m/%Y") %> au <%= ended = session[:end_date].to_date.strftime("%d/%m/%Y") %></li>
           </ul>
       </div>
       <div class="case">
@@ -51,10 +51,10 @@
         <% time = ended.to_time - start.to_time %>
       </ul>
       <ul>
-        <p>Durée du séjour  <%= total_time = time.to_i/86400 %> jours </p>
+        <p class="p-space"><span class="space-b">Durée du séjour</span><span><%= total_time = time.to_i/86400 %> jours</span></p>
         <% nanny_day = @nanny.price_per_day_cents %>
-        <p>Tarif journalier <%= nanny_day %> €/jour </p>
-        <p>Estimation totale  <%= total_time*nanny_day %> €</p>
+        <p class="p-space"><span class="space-b">Tarif journalier</span><span><%= nanny_day %> €/jour</span></p>
+        <p class="p-space"><span class="space-b">Estimation totale</span><span><%= total_time*nanny_day %> €</span></p>
       </ul>
       <span></span>
       <button type="button" class="btn btn-secondary btn-resa" data-toggle="modal" data-target="#exampleModal">
