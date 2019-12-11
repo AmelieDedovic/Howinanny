@@ -1,4 +1,6 @@
 class UserMailer < ApplicationMailer
+  from: "howinanny@gmail.com"
+
   def div_payment
     @user = params[:user]
     @payment = params[:payment]

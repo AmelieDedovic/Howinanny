@@ -2,14 +2,16 @@
   <div class="row py-4">
     <div class="col-md-3"><%= cl_image_tag @reservation.try(:nanny).try(:photo) || "", width: '100%' %></div>
     <div class="col">
-      <h1>Checkout summary</h1>
+      <h1>Confirmation de réservation</h1>
       <p>Votre réservation avec <strong><%= @reservation.nanny.first_name %></strong> for <strong><%= humanized_money_with_symbol @reservation.total_price %></strong></p>
       <form method="POST" action="<%= reservation_split_path(@reservation) %>">
         <div id="dynamicInput">
           <br><input type="email" name="myInputs[]" placeholder="Email 1">
         </div>
-        <input type="button" value="Ajouter une addresse Email" onClick="addInput('dynamicInput');">
-        <input type="submit" value="Valider">
+        <div>
+        <input type="button" value="Ajouter une addresse Email" onClick="addInput('dynamicInput');" class="btn btn-secondary input-split" >
+        <input type="submit" value="Valider" class="btn btn-secondary input-split">
+        </div>
       </form>
       <script>
         var counter = 1;
