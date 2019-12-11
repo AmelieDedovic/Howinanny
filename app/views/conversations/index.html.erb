@@ -64,25 +64,24 @@
     <h3>Récapitulatif</h3>
       <ul class="inline">
         <% if session[:start_date].present? && session[:end_date].present? %>
-        <li>Du <%= start = session[:start_date] %></li>
-        <li>au <%= ended = session[:end_date] %></li>
+        <li>Du <%= start = session[:start_date].to_date.strftime("%d/%m/%Y") %> au <%= ended = session[:end_date].to_date.strftime("%d/%m/%Y") %></li>
         <% time = ended.to_time - start.to_time %>
       </ul>
-      <p>Durée du séjour : <%= total_time = time.to_i/86400 %> jours </p>
-      <ul>
-        <% nanny_day = @conversation.nanny.price_per_day_cents %>
-        Tarif journalier : <%= nanny_day %> €/jour
-        Estimation totale : <%= total_time*nanny_day %> €
+        <p class="p-space"><span class="space-b">Durée du séjour</span><span><%= total_time = time.to_i/86400 %> jours</span></p>
+        <% nanny_day = @nanny.price_per_day_cents %>
+        <p class="p-space"><span class="space-b">Tarif journalier</span><span><%= nanny_day %> €/jour</span></p>
+        <p class="p-space"><span class="space-b">Estimation totale</span><span><%= total_time*nanny_day %> €</span></p>
       </ul>
       <% else %>
-        <ul>
-          <% nanny_day = @conversation.nanny.price_per_day_cents %>
+      <ul>
+          <% nanny_day = @nanny.price_per_day_cents %>
           <li>Service nounou : <%= nanny_day %> €/jour</li>
         </ul>
       <% end %>
-    <button type="button" class="btn btn-secondary btn-resa" data-toggle="modal" data-target="#exampleModal">
-      Réserver
-    </button>
+      <span></span>
+      <button type="button" class="btn btn-secondary btn-resa" data-toggle="modal" data-target="#exampleModal">
+        Réserver
+      </button>
   </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
