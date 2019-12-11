@@ -98,8 +98,14 @@ font-size: 2.2rem;
   font-size: 20px;
 }
 
-.nav-link {
+.nav-link-home {
   position: absolute;
+  right: 166px;
+  top: 13px;
+  font-size: 20px;
+}
+
+.nav-link {
   right: 166px;
   top: 6px;
   font-size: 20px;
@@ -153,3 +159,11 @@ font-size: 2.2rem;
   font-size: 26px;
   margin-bottom: 0px;
 }
+
+.deconnect-user {
+  position: absolute;
+  right: 250px;
+  top: 13px;
+  font-size: 20px;
+}
+

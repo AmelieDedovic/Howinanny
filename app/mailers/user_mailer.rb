@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  from: "howinanny@gmail.com"
+  default from: "howinanny@gmail.com"
 
   def div_payment
     @user = params[:user]
