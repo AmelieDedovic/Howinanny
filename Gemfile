@@ -23,6 +23,7 @@ gem 'money-rails'
 gem 'stripe'
 gem 'stripe_event'
 gem 'postmark-rails'
+gem 'mailgun-ruby', '~>1.1.6'
 
 
 group :development do

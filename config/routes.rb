@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     get 'split', to: 'payments#new_split'
     post 'split', to: 'payments#split'
   end
+  resources :payments do
+    get '/payyourshare', to: 'payments#payshare'
+  end
   resources :messages, only: [:index, :create]
 
   namespace :nanny_space do
