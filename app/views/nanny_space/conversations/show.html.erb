@@ -17,21 +17,22 @@
   <div class="chat-box">
       <% @conversation.messages.each do |m| %>
         <% if m.user_type == "nanny"%>
-          <ul class="ul-left">
-            <div class="message-left">
-              <li class="message-name"><%= current_nanny.first_name %> - <%= m.created_at.to_date.strftime("%d/%m") %> à <%= m.created_at.to_time.strftime("%Hh%M") %>
-                </li>
-              <li><%= m.content %></li>
-            </div>
-          <ul>
-        <% else %>
           <ul class="ul-right">
             <div class="message-right">
-              <li class="message-name"><%= @conversation.user.first_name %> - <%= m.created_at.to_date.strftime("%d/%m") %> à <%= m.created_at.to_time.strftime("%Hh%M") %>
+              <li class="message-name"><%= current_nanny.first_name %> - <%= m.created_at.to_date.strftime("%d/%m") %> à <%= m.created_at.to_time.strftime("%Hh%M") %>
               </li>
               <li><%= m.content %></li>
             </div>
           </ul>
+        <% else %>
+        <ul class="ul-left">
+            <div class="message-left">
+              <li class="message-name"><%= @conversation.user.first_name %> - <%= m.created_at.to_date.strftime("%d/%m") %> à <%= m.created_at.to_time.strftime("%Hh%M") %>
+                </li>
+              <li><%= m.content %></li>
+            </div>
+          <ul>
+
         <% end %>
       <% end %>
     <div class="field-message">

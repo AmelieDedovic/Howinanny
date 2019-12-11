@@ -18,9 +18,17 @@
     <!-- <div class="messages-chat-box"> -->
       <% @messages.each do |m| %>
         <% if m.user_type == "user"%>
+        <ul class="ul-right">
+            <div class="message-right">
+              <li class="message-name"><%= current_user.first_name %> - <%= m.created_at.to_date.strftime("%d/%m") %> à <%= m.created_at.to_time.strftime("%Hh%M") %>
+              </li>
+              <li><%= m.content %></li>
+            </div>
+          </ul>
+        <% else %>
           <ul class="ul-left">
             <div class="message-left">
-              <li class="message-name"><%= current_user.first_name %> - <%= m.created_at.to_date.strftime("%d/%m") %> à <%= m.created_at.to_time.strftime("%Hh%M") %>
+              <li class="message-name"><%= @conversation.nanny.first_name %> - <%= m.created_at.to_date.strftime("%d/%m") %> à <%= m.created_at.to_time.strftime("%Hh%M") %>
                 <!-- bricolage traduction time_ago -->
                 <%# if time_ago_in_words(m.created_at).split.include?("than") %>
                   <!-- il y a moins d'une minute -->
@@ -41,14 +49,6 @@
               <li><%= m.content %></li>
             </div>
           <ul>
-        <% else %>
-          <ul class="ul-right">
-            <div class="message-right">
-              <li class="message-name"><%= @conversation.nanny.first_name %> - <%= m.created_at.to_date.strftime("%d/%m") %> à <%= m.created_at.to_time.strftime("%Hh%M") %>
-              </li>
-              <li><%= m.content %></li>
-            </div>
-          </ul>
         <% end %>
       <% end %>
     <div class="field-message">
