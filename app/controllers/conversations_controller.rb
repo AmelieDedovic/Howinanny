@@ -7,6 +7,7 @@ class ConversationsController < AuthenticatedController
     @conversation.user = current_user
     @messages = @conversation.messages.order(:created_at)
     @message = Message.new
+    @reservation = Reservation.new
   end
 
   private
