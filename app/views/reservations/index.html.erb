@@ -21,10 +21,10 @@
           <div class="highlight-container">
             <div class="highlight">
               <% if resa.state == 'pending' %>
-                <div>
+                <div class="btn btn-secondary link">
                   <%= link_to 'Payer la totalité', new_reservation_payment_path(resa) %>
                 </div>
-                <div>
+                <div class="btn btn-secondary link">
                   <%= link_to 'Partager les frais', reservation_split_path(resa) %>
                 </div>
               <% else %>

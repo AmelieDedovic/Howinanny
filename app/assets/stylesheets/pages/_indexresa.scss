@@ -46,6 +46,7 @@
 // }
 a:hover {
 text-decoration: none;
+color: white
 
 }
 
@@ -69,7 +70,7 @@ color: black;
     width: 162%;
     margin: auto;
     position: absolute;
-    background: rgba(255,255,0,1);
+    //background: rgba(255,255,0,1);
     transform: rotate(0deg);
     top: 9px;
     right: -9px;
@@ -78,5 +79,12 @@ color: black;
   }
 
   }
+.link {
+  padding: 0 5px;
+}
+
+.link:hover {
+  color: white;
+}
 
 
