@@ -7,9 +7,7 @@
       <%= link_to "Me déconnecter", destroy_nanny_session_path, method: :delete %>
     <% else %>
       <ul>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
+
         <li class="nav-item">
           <%= link_to "Nanny", new_nanny_session_path, class: "nav-link" %>
         </li>
@@ -24,8 +22,8 @@
 
   <div class="home-banner-content">
     <h4> Les vacances, c’est sacré&thinsp;!<br></h4>
-    <p>Howinanny vous propose de trouver LA nounou qui vous accompagnera pendant vos vacances.<br>
-    <span class="underline">Pour des enfants heureux et des parents détendus.</span></p>
+    <p class="p-home">Howinanny vous propose de trouver LA nounou qui vous accompagnera pendant vos vacances.
+    <p class="p-home">Pour des <span class="underline">enfants heureux</span> et des <span class="underline">parents détendus.</span>
   </div>
   <div class="date-home d-flex align-self-end">
     <div class="bg-gray">
@@ -75,7 +73,7 @@
 
 <div class="pay-container">
 <div class="text-pay">
-<h1>Système de partage de frais</h1>
+<h1>Système de <strong>partage de frais</strong></h1>
 <p>Vous partez à plusieurs familles ? <br>
   Partagez les frais directement via la plateforme. <br>
   Simple, rapide et efficace !</p>
