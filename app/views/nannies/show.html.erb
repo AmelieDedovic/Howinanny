@@ -37,6 +37,7 @@
     <div class="content-right">
       <div class="case">
         <h3>Dates sélectionnées</h3>
+        <% if session[:start_date].present? && session[:end_date].present? %>
           <ul class="inline">
         <li>Du <%= start = session[:start_date].to_date.strftime("%d/%m/%Y") %> au <%= ended = session[:end_date].to_date.strftime("%d/%m/%Y") %></li>
           </ul>
@@ -56,6 +57,12 @@
         <p class="p-space"><span class="space-b">Tarif journalier</span><span><%= nanny_day %> €/jour</span></p>
         <p class="p-space"><span class="space-b">Estimation totale</span><span><%= total_time*nanny_day %> €</span></p>
       </ul>
+      <% else %>
+      <ul>
+          <% nanny_day = @nanny.price_per_day_cents %>
+          <li>Service nounou : <%= nanny_day %> €/jour</li>
+        </ul>
+      <% end %>
       <span></span>
       <button type="button" class="btn btn-secondary btn-resa" data-toggle="modal" data-target="#exampleModal">
         Réserver
@@ -63,6 +70,7 @@
       <button type="button" class="btn btn-secondary btn-contact">
         <%= link_to "Contacter", nanny_conversations_path(@nanny) %>
       </button>
+
     </div>
   </div>
 </div>
