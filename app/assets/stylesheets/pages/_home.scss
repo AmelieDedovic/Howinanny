@@ -89,7 +89,6 @@ p {
   text-align: justify;
 }
 
-
 .onglet {
   position: absolute;
   right: 20px;
@@ -106,23 +105,25 @@ p {
   width: 100%;
   margin-top: -60px;
   color: #494848;
+}
 
 .full-screen {
   min-height: calc(100vh - 100px);
-
-}}
+}
 
 .pic-pay {
-  background-image: url("https://res.cloudinary.com/dljfsfpna/image/upload/v1576062110/pay_wraits.jpg");
+ background-image: url("https://res.cloudinary.com/dljfsfpna/image/upload/v1576062110/pay_wraits.jpg");
 width: 60%;
 height: 500px;
 background-size: cover;
 margin-bottom: 80px;
 margin-right: 45px;
 }
+
 .pay-container {
   display: flex;
 }
+
 .text-pay {
   background-color: $grey-light;
   width: 40%;
@@ -134,7 +135,5 @@ margin-right: 45px;
   text-align: center;
   & p {
     font-size: 21px;
-
   }
 }
-

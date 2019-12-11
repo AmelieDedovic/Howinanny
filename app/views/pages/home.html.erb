@@ -1,10 +1,27 @@
 <div class="home-banner">
   <%= image_tag "https://res.cloudinary.com/dljfsfpna/image/upload/v1575551825/howinanny-logo.png" %>
+
+    <% if user_signed_in? %>
+      <%= link_to "Me déconnecter", destroy_user_session_path, method: :delete %>
+    <% elsif nanny_signed_in? %>
+      <%= link_to "Me déconnecter", destroy_nanny_session_path, method: :delete %>
+    <% else %>
+      <ul>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Nanny", new_nanny_session_path, class: "nav-link" %>
+        </li>
+      </ul>
+    <% end %>
+
   <% if current_user.nil?%>
     <%= link_to "Se connecter", new_user_session_path, class: "onglet" %>
   <% else %>
     <%= link_to "Mon tableau de bord", reservations_path, class: "onglet" %>
   <% end %>
+
   <div class="home-banner-content">
     <h4> Les vacances, c’est sacré&thinsp;!<br></h4>
     <p>Howinanny vous propose de trouver LA nounou qui vous accompagnera pendant vos vacances.<br>

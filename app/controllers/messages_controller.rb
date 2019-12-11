@@ -2,11 +2,24 @@ class MessagesController < ApplicationController
   before_action :set_conversation_id_for_create, only: [:create]
 
   def create
+
     @message = Message.new(message_params)
     @message.conversation = @conversation
-    @message.user_type = "user"
-    if @message.save
+    if current_nanny.nil?
+       @message.user_type = "user"
+     else
+     @message.user_type = "nanny"
+    end
+    # @message.user_type = "user"
+    # if @message.save && current_user
+    #   redirect_to nanny_conversations_path(@conversation.nanny)
+    # else @message.save && current_nanny
+    #   redirect_to nanny_space_conversation_path(@conversation)
+    # end
+    if @message.save && current_user
       redirect_to nanny_conversations_path(@conversation.nanny)
+    else @message.save && current_nanny
+      redirect_to nanny_space_conversation_path(@conversation)
     end
   end
 

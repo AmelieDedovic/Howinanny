@@ -1,23 +1,39 @@
-<h1>Messagerie</h1>
+<h1 id="message-title">Messagerie</h1>
 <div class="chat-page">
   <div class="sender">
-    <p><%= current_user.first_name %></p>
+    <div class="senders">
+      <h4>Participants</h4>
+    </div>
     <img src=<%= current_user.photo %> alt="" class="avatar-message">
-    <p>1 enfant à divertir</p>
-    <p>Destination : Biarritz</p>
-    <p><%= @conversation.nanny.first_name %></p>
+    <p class="user-name"><%= current_user.first_name %> <%= current_user.last_name %></p>
+    <i class="fas fa-angle-double-down arrow-down"></i>
+    <br>
+    <img src=<%= @conversation.nanny.photo %> alt="" class="avatar-message">
+    <p class="nanny-name"><%= @conversation.nanny.first_name %></p>
+    <%= link_to "Revoir ses détails", nanny_path(@nanny) %>
   </div>
 
 
   <div class="chat-box">
-    <div class="messages-chat-box">
+    <!-- <div class="messages-chat-box"> -->
       <% @messages.each do |m| %>
-        <ul>
-          <li><%= current_user.first_name %> - <%= time_ago_in_words(m.created_at) %></li>
-          <li><%= m.content %></li>
-        </ul>
+        <% if m.user_type == "user"%>
+          <ul class="ul-left">
+            <div class="message-left">
+              <li class="message-name"><%= current_user.first_name %> - <%= time_ago_in_words(m.created_at) %></li>
+              <li><%= m.content %></li>
+            </div>
+          <ul>
+        <% else %>
+          <ul class="ul-right">
+            <div class="message-right">
+              <li class="message-name"><%= @conversation.nanny.first_name %> - <%= time_ago_in_words(m.created_at) %></li>
+              <li><%= m.content %></li>
+            </div>
+          </ul>
+        <% end %>
       <% end %>
-    </div>
+    <!-- </div> -->
 
     <div class="field-message">
         <%= form_for @message do |f| %>
@@ -31,6 +47,7 @@
   <div class="recap">
     <h3>Récapitulatif</h3>
       <ul class="inline">
+        <% if session[:start_date].present? && session[:end_date].present? %>
         <li>Du <%= start = session[:start_date] %></li>
         <li>au <%= ended = session[:end_date] %></li>
         <% time = ended.to_time - start.to_time %>
@@ -38,14 +55,53 @@
       <p>Durée du séjour : <%= total_time = time.to_i/86400 %> jours </p>
       <ul>
         <% nanny_day = @conversation.nanny.price_per_day_cents %>
-        <li>Tarif journalier : <%= nanny_day %> €/jour</li>
-        <li>Estimation totale : <%= total_time*nanny_day %> €</li>
+        Tarif journalier : <%= nanny_day %> €/jour
+        Estimation totale : <%= total_time*nanny_day %> €
       </ul>
-
+      <% else %>
+        <ul>
+          <% nanny_day = @conversation.nanny.price_per_day_cents %>
+          <li>Service nounou : <%= nanny_day %> €/jour</li>
+        </ul>
+      <% end %>
     <button type="button" class="btn btn-secondary btn-resa" data-toggle="modal" data-target="#exampleModal">
       Réserver
     </button>
   </div>
-
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Réservation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Vous avez décidé de voyager avec <%= @conversation.nanny.first_name %>, veuillez confirmer votre choix:</p>
+        <%= simple_form_for ([@conversation.nanny, @reservation]) do |f| %>
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-6 col-lg-4">
+            <div class="form-inputs">
+              <div class="form-group">
+                <%= f.input :start_date,
+                  html5: true,
+                  input_html: { value: session[:start_date] } %>
+                <%= f.input :end_date,
+                  html5: true,
+                  input_html: { value: session[:end_date] } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Revenir à la nanny</button>
+        <button type="submit" action="/nannies/:nanny_id/reservation#create" class="btn btn-primary">Confirmer</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
