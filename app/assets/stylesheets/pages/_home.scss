@@ -4,6 +4,7 @@ body{
   color: $grey-dark;
   font-size: 16px;
 }
+
 .home-banner{
   background-image: url("https://images.unsplash.com/photo-1555482000-9ea363917a18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
   background-size: cover;
@@ -90,7 +91,17 @@ font-size: 2.2rem;
 // p {
 //   text-align: justify;
 // }
-
+a:link{
+  text-decoration: none!important;
+}
+.onglet, .nav-link, .nav-link-home, .deconnect-user{
+  color: $grey-dark;
+  transition: ease 0.3s;
+  text-decoration: none;
+}
+.onglet:hover, .nav-link:hover, .nav-link-home:hover, .deconnect-user:hover{
+  color: $grey-light;
+}
 .onglet {
   position: absolute;
   right: 30px;

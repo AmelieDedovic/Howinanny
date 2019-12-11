@@ -33,6 +33,12 @@
   object-fit: cover;
   box-shadow: 0 0 18px rgba(48,48,48,0.1);
 }
+.link-details{
+color: $grey-dark;
+}
+.link-details:hover{
+  color: $black;
+}
 .chat-page{
   display: flex;
   margin-bottom: 48px;
@@ -68,13 +74,13 @@
   text-align: right;
   border: 1px solid $yellow-dark;
   background-color: $yellow-dark;
-  border-radius: 4px;
 }
 .message-left, .message-right{
   margin-bottom: 16px;
   padding: 8px;
   max-width: 80%;
   font-size: 14px;
+  border-radius: 4px;
 }
 .message-name{
   font-weight: bold;
@@ -93,7 +99,7 @@
   margin-left: 16px;
 }
 .message{
-  width: 520px;
+  width: 510px;
 }
 .recap{
   margin-left: 50px;

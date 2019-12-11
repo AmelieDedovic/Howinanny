@@ -1,12 +1,12 @@
 <div class="conv-container">
-  <h2> Bienvenue dans votre tableau de bord <strong> <%= current_nanny.first_name %> </strong></h2>
+  <h2> <strong> <%= current_nanny.first_name %> </strong>, bienvenue dans votre tableau de bord </h2>
   <h5 class="conv-title">Mes conversations</h5>
   <p>Votre profil est intéressant, des utilisateurs vous ont contacté pour en savoir plus.</p>
   <div class="conv-cards">
     <% @conversations.each do |conv| %>
       <div class="conv-card">
         <% if conv.nanny.id == current_nanny.id %>
-          <%= link_to conv.user.first_name, nanny_space_conversation_path(conv) %>
+          <%= link_to conv.user.first_name, nanny_space_conversation_path(conv), class: "link-to-chat" %>
         <% end %>
       </div>
     </div>

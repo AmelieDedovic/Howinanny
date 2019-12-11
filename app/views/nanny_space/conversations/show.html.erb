@@ -1,25 +1,44 @@
-<h1>Messagerie nanny</h1>
+<h1 id="message-title">Messagerie nanny</h1>
+<div class="chat-page">
+  <div class="sender">
+    <div class="senders">
+      <h3>Participants</h3>
+    </div>
+    <img src=<%=current_nanny.photo %> alt="" class="avatar-message">
+    <p class="nanny-name"><%= current_nanny.first_name %></p>
+    <i class="fas fa-angle-double-down arrow-down"></i>
+    <br>
+    <img src=<%= @conversation.user.photo %> alt="" class="avatar-message">
+    <p class="user-name"><%= @conversation.user.first_name %> <%= @conversation.user.last_name %></p>
+    <%= link_to "Retourner au tableau de bord", nanny_space_conversation_path, class: "link-details" %>
+  </div>
 
-<div class="messages-chat-box">
-  <% @conversation.messages.each do |m| %>
-    <% if m.user_type == "nanny"%>
-      <ul class="ul-left">
-          <div class="message-left">
-            <li class="message-name">
-              <%= @conversation.nanny.first_name %> - <%= m.created_at.to_date.strftime("%d/%m") %> à <%= m.created_at.to_time.strftime("%Hh%M") %>
-            </li>
-      <% else %>
-      <%= @conversation.user.first_name %> - <%= time_ago_in_words(m.created_at)%>
+
+  <div class="chat-box">
+      <% @conversation.messages.each do |m| %>
+        <% if m.user_type == "nanny"%>
+          <ul class="ul-left">
+            <div class="message-left">
+              <li class="message-name"><%= current_nanny.first_name %> - <%= m.created_at.to_date.strftime("%d/%m") %> à <%= m.created_at.to_time.strftime("%Hh%M") %>
+                </li>
+              <li><%= m.content %></li>
+            </div>
+          <ul>
+        <% else %>
+          <ul class="ul-right">
+            <div class="message-right">
+              <li class="message-name"><%= @conversation.user.first_name %> - <%= m.created_at.to_date.strftime("%d/%m") %> à <%= m.created_at.to_time.strftime("%Hh%M") %>
+              </li>
+              <li><%= m.content %></li>
+            </div>
+          </ul>
+        <% end %>
       <% end %>
-      <li><%= m.content %></li>
-    </ul>
-  <% end %>
-</div>
-<div >
-    <%= form_for @message do |f| %>
-      <%= f.text_area :content, placeholder: "Votre message", class: "message" %>
-      <%= f.hidden_field :conversation_id, value: @conversation.id%>
-      <%= f.submit "Envoyer", class: "btn btn-secondary btn-send", method: :post %>
-    <% end %>
-
-</div>
+    <div class="field-message">
+        <%= form_for @message do |f| %>
+          <%= f.text_area :content, placeholder: "Votre message", class: "message" %>
+          <%= f.hidden_field :conversation_id, value: @conversation.id%>
+          <%= f.submit "Envoyer", class: "btn btn-secondary btn-send", method: :post%>
+        <% end %>
+    </div>
+  </div>
