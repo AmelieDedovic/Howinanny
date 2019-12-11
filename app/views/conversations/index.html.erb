@@ -43,8 +43,8 @@
       <p>Durée du séjour : <%= total_time = time.to_i/86400 %> jours </p>
       <ul>
         <% nanny_day = @conversation.nanny.price_per_day_cents %>
-        <li>Tarif journalier : <%= nanny_day %> €/jour</li>
-        <li>Estimation totale : <%= total_time*nanny_day %> €</li>
+        Tarif journalier : <%= nanny_day %> €/jour
+        Estimation totale : <%= total_time*nanny_day %> €
       </ul>
       <% else %>
         <ul>
@@ -56,6 +56,40 @@
       Réserver
     </button>
   </div>
-
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Réservation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Vous avez décidé de voyager avec <%= @conversation.nanny.first_name %>, veuillez confirmer votre choix:</p>
+        <%= simple_form_for ([@conversation.nanny, @reservation]) do |f| %>
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-6 col-lg-4">
+            <div class="form-inputs">
+              <div class="form-group">
+                <%= f.input :start_date,
+                  html5: true,
+                  input_html: { value: session[:start_date] } %>
+                <%= f.input :end_date,
+                  html5: true,
+                  input_html: { value: session[:end_date] } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Revenir à la nanny</button>
+        <button type="submit" action="/nannies/:nanny_id/reservation#create" class="btn btn-primary">Confirmer</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
