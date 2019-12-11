@@ -1,0 +1,17 @@
+.conv-container{
+margin-left: 50px;
+}
+.conv-title{
+margin-top: 32px;
+}
+.conv-card{
+display: flex;
+flex-direction: column;
+}
+.conv-card{
+  box-shadow: 0 0 18px rgba(48,48,48,0.1);
+  padding: 16px 8px;
+  margin: 32px;
+  width: 10%;
+  align-items: center;
+}

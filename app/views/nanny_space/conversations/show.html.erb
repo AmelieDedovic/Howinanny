@@ -2,9 +2,12 @@
 
 <div class="messages-chat-box">
   <% @conversation.messages.each do |m| %>
-    <ul>
-      <% if m.user_type == "nanny"%>
-      <li><%= @conversation.nanny.first_name %> - <%= time_ago_in_words(m.created_at) %></li>
+    <% if m.user_type == "nanny"%>
+      <ul class="ul-left">
+          <div class="message-left">
+            <li class="message-name">
+              <%= @conversation.nanny.first_name %> - <%= m.created_at.to_date.strftime("%d/%m") %> à <%= m.created_at.to_time.strftime("%Hh%M") %>
+            </li>
       <% else %>
       <%= @conversation.user.first_name %> - <%= time_ago_in_words(m.created_at)%>
       <% end %>

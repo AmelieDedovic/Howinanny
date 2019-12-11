@@ -1,13 +1,23 @@
-<h1>Mes conversations</h1>
+<div class="conv-container">
+  <h2> Bienvenue dans votre tableau de bord <strong> <%= current_nanny.first_name %> </strong></h2>
+  <h5 class="conv-title">Mes conversations</h5>
+  <p>Votre profil est intéressant, des utilisateurs vous ont contacté pour en savoir plus.</p>
+  <div class="conv-cards">
+    <% @conversations.each do |conv| %>
+      <div class="conv-card">
+        <% if conv.nanny.id == current_nanny.id %>
+          <%= link_to conv.user.first_name, nanny_space_conversation_path(conv) %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 
-<h2> Bienvenue dans votre tableau de bord <%= current_nanny.first_name %></h2>
-
-<% @conversations.each do |conv| %>
-  <div class="conv-card">
-    <% if conv.nanny.id == current_nanny.id %>
-      <%= conv.nanny.first_name %>
-      <%= conv.user.first_name %>
-      <%= link_to "Conversation", nanny_space_conversation_path(conv) %>
-    <% end %>
-  </div>
-<% end %>
+  <h5 class="conv-title">Mes réservations</h5>
+  <% current_nanny.reservations.each do |resa| %>
+    <div class="resa-card">
+        <% if resa.nanny.id == current_nanny.id %>
+          <%= resa.user.first_name %>
+        <% end %>
+      </div>
+  <% end %>
+</div>
