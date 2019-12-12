@@ -131,6 +131,9 @@ a:link{
   width: 100%;
   margin-top: -60px;
   color: #494848;
+  & a{
+    color: $grey-dark;
+  }
 }
 
 .full-screen {
