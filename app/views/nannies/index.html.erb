@@ -26,7 +26,10 @@
           <%= cl_image_tag nanny.photo,class: "profile-pic", crop: :fill  %>
           <div class="infos">
             <h4><%= "#{nanny.first_name} #{nanny.last_name}"%></h4>
-            <p class="age"><%= [22, 19, 30, 25].sample %> ans</p>
+              <% now = Date.today %>
+              <% age = now.year - nanny.birth_date.year %>
+            <p class="age"><%= age %> ans
+            </p>
             <div class="d-flex align-items-center">
               <i class="fas fa-map-marker-alt"></i>
               <p class="city"><%= nanny.city %></p>
