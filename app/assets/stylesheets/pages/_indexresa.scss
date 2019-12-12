@@ -10,7 +10,7 @@
 }
 
 .card-resa {
-  box-shadow: 0 0 18px rgba(48,48,48,0.1);
+  box-shadow: 0 0 18px rgba(48,48,48,0.4);
   padding: 32px;
   margin: 32px;
   height: 200px;
@@ -61,6 +61,7 @@ color: black;
 
 .highlight-container, .highlight {
   position: relative;
+  font-size: 24px;
 }
 .highlight-container { display: inline-block;
   &:before {

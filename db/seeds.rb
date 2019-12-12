@@ -255,4 +255,13 @@ user5 = User.new(
 user5.remote_photo_url = 'https://images.unsplash.com/photo-1466358233012-14413ad4e76f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1649&q=80'
 user5.save!
 
+reservation_garance = Reservation.new(
+  start_date: '2019-08-15',
+  end_date: '2019-08-30',
+  state: 'payé',
+  user: user1,
+  nanny: nanny2
+)
+reservation_garance.save!
+
 puts 'Database created !!'

@@ -5,7 +5,7 @@
 .sender{
   width: 300px;
   margin-left: 38px;
-  box-shadow: 0 0 18px rgba(48,48,48,0.1); //--> for real life
+  box-shadow: 0 0 18px rgba(48,48,48,0.4); //--> for real life
   display:flex;
   flex-direction: column;
   align-items: center;
@@ -31,7 +31,7 @@
   width: 80px;
   height: 80px;
   object-fit: cover;
-  box-shadow: 0 0 18px rgba(48,48,48,0.1);
+  box-shadow: 0 0 18px rgba(48,48,48,0.4);
 }
 .link-details{
 color: $grey-dark;
@@ -47,7 +47,7 @@ color: $grey-dark;
 }
 .chat-box{
   width: 700px;
-  box-shadow: 0 0 18px rgba(48,48,48,0.1); //--> for real life
+  box-shadow: 0 0 18px rgba(48,48,48,0.4); //--> for real life
   padding: 20px;
   height: 500px;
   position: relative;
