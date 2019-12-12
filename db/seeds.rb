@@ -258,7 +258,8 @@ user5.save!
 reservation_garance = Reservation.new(
   start_date: '2019-08-15',
   end_date: '2019-08-30',
-  state: 'payé',
+  state: 'Payé',
+  total_price: '420',
   user: user1,
   nanny: nanny2
 )
