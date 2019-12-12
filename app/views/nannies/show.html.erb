@@ -1,3 +1,6 @@
+<% content_for :meta_title, "#{@nanny.first_name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @nanny.description %>
+<% content_for :meta_image, cl_image_path(@nanny.photo.path) %>
 <div class="show-cards">
   <div class="card-left">
     <div class="show-avatar-title d-flex">
