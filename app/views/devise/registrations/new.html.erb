@@ -27,7 +27,7 @@
                       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                       input_html: { autocomplete: "new-password" },
                       label: "Mot de passe",
-                      small: "6 caractères minimum" %>
+                      hint: "6 caractères minimum" %>
           <%= f.input :password_confirmation,
                       required: true,
                       input_html: { autocomplete: "new-password" },
