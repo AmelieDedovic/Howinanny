@@ -43,13 +43,13 @@ color: $grey-dark;
   display: flex;
   margin-bottom: 48px;
   margin-top: 55px;
-  margin-left: 180px;
+  justify-content: center;
 }
 .chat-box{
   width: 700px;
   box-shadow: 0 0 18px rgba(48,48,48,0.4); //--> for real life
   padding: 20px;
-  height: 500px;
+  height: 60vh;
   position: relative;
   margin-left: 50px;
   & li{
@@ -96,10 +96,11 @@ color: $grey-dark;
   align-items: center;
 }
 .btn-send{
-  margin-left: 16px;
+
 }
 .message{
-  width: 510px;
+  width: 530px;
+  margin-right: 16px;
 }
 .recap{
   margin-left: 50px;
