@@ -9,11 +9,11 @@ body{
   background-image: url("https://images.unsplash.com/photo-1555482000-9ea363917a18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
   background-size: cover;
   background-position: center;
-  height: 970px;
+  height: 800px;
   overflow: hidden;
   display: flex;
   & img{
-    height: 160px;
+    height: 132px;
     position: absolute;
     left: 36px;
     top: 0;
@@ -21,12 +21,12 @@ body{
   }
 }
 .home-banner-content{
-  width: 450px;
+  width: 330px;
   font-size:24px;
   color: $grey-dark;
   position: absolute;
   right: 104px;
-  top: 472px;
+  top: 392px;
   margin-right: 14px;
 }
 
@@ -43,6 +43,7 @@ body{
   display: flex;
   justify-content: center;
   margin-bottom: 72px;
+  line-height: 32px;
 }
 .service-card{
   width: 400px;
@@ -81,7 +82,7 @@ body{
 }
 h4 {
 font-weight: bold;
-font-size: 2.2rem;
+font-size: 1.5rem;
 }
 
 .underline {
@@ -168,10 +169,14 @@ a:link{
     padding-top: 20px;
     text-align: center;
   }
+  & h1 {
+    font-size: 2rem;
+  }
 }
+
 .p-home {
-  font-size: 26px;
-  margin-bottom: 0px;
+  font-size: 18px;
+  margin-bottom: 5px;
 }
 
 .deconnect-user {
@@ -180,4 +185,6 @@ a:link{
   top: 13px;
   font-size: 20px;
 }
-
+.text-align {
+  word-spacing: -1px;
+}
