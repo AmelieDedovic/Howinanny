@@ -46,6 +46,9 @@ color: $grey-dark;
   justify-content: center;
 }
 .chat-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 700px;
   box-shadow: 0 0 18px rgba(48,48,48,0.4); //--> for real life
   padding: 20px;
@@ -55,6 +58,11 @@ color: $grey-dark;
   & li{
   list-style: none;
   }
+}
+#message-scroll{
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 85%;
 }
 .ul-left{
   display: flex;
@@ -99,7 +107,7 @@ color: $grey-dark;
 
 }
 .message{
-  width: 530px;
+  width: 520px;
   margin-right: 16px;
 }
 .recap{
