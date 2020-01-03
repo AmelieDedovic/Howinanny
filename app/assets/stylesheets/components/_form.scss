@@ -1,0 +1,29 @@
+.form-container{
+  margin-top: 10vh;
+}
+.form-title {
+  font-size: 32px;
+  font-family: Satisfy, sans-serif;
+  text-align: center;
+  margin-bottom: 14px;
+}
+.btn{
+  &.btn-login {
+    font-size: 16px;
+  }
+}
+.links-to{
+  text-align: center;
+  margin-top: 24px;
+  color:$grey-dark;
+}
+.link-sign-up-form, .forgot-password, .simple-link-form{
+  color: $grey-dark;
+}
+.img-form{
+  margin-top: 30px;
+}
+.cancel-acount{
+  text-align: center;
+  margin-top: 60px;
+}

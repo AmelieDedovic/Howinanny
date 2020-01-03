@@ -1,43 +1,59 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2 class="form-title">Modifier mon profil</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6 col-lm-4">
+      <div class="form-inputs">
+        <%= f.input :email, required: true, autofocus: true %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-
-    <%= f.input :city,
-                required: false,
-                input_html: { autocomplete: "city" } %>
-    <%= f.input :description,
-                hint: "Décrivez par exemple vos prochaines vacances, vos enfants, etc.",
-                required: false,
-                input_html: { autocomplete: "description" } %>
-    <%= f.input :password,
-                hint: "Les mots de passe doivent au moins avoir 6 caractères.",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                hint: "Entrez le mot de passe à nouveau",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "Entrez votre mot de passe actuel",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+        <%= f.input :city,
+                    required: false,
+                    input_html: { autocomplete: "city" },
+                    label: "Votre ville" %>
+        <%= f.input :description,
+                    hint: "Décrivez par exemple vos prochaines vacances, vos enfants, etc.",
+                    required: false,
+                    input_html: { autocomplete: "description" } %>
+        <%= f.input :password,
+                    label: "Votre nouveau mot de passe",
+                    hint: "6 caractères minimum",
+                    required: false,
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    label: "Confirmez votre nouveau mot de passe",
+                    hint: "Entrez le mot de passe à nouveau",
+                    required: false,
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :current_password,
+                    hint: "Entrez votre mot de passe actuel",
+                    required: true,
+                    input_html: { autocomplete: "current-password" } %>
+      </div>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6 col-lm-4">
+      <div class="form-actions">
+        <%= f.button :submit, "Enregistrer les modifications", class: "btn-block btn-login" %>
+      </div>
+    </div>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<div class="cancel-acount">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-4">
+      <h5>Supprimer mon compte</h5>
+      <span>Vous souhaitez nous quitter ? <%= link_to "Se désinscrire", registration_path(resource_name),
+                                          data: { confirm: "Etes-vous sûr de vouloir nous quitter ?" },
+                                          method: :delete %></span>
+      - <%= link_to "Retour", :back %>
+    </div>
+  </div>
+</div>
